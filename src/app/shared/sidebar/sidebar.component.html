@@ -1,0 +1,28 @@
+<h2>Mis Productos</h2>
+<hr>
+<ul class="list-group">
+  <li class="list-group-item"
+      routerLink=""
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true}">
+      Buscar Producto
+  </li>
+  <li class="list-group-item"
+      routerLink="create-prod"
+      routerLinkActive="active">
+      Crear Producto
+  </li>
+  <li>
+    <div class="list-group list-reset">
+      <a href="#"
+        (click)= "search(arg)"
+        class="list-group-item list-group-item-action"
+        *ngFor= "let arg of record">
+         {{arg | titlecase}}
+      </a>
+    </div>
+  </li>
+</ul>
+<div>
+  <button type="button" class="btn btn-primary" #buttonClear (click)="Clear()">Borrar historial</button>
+</div>

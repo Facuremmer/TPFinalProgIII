@@ -1,0 +1,8 @@
+<h5>Buscar</h5>
+<input type="text" 
+       class="form-control" 
+       placeholder="Buscar Productos..."
+       (keyup.enter)="SearchByName()"
+       #txtBuscar> 
+
+       <button type="button" class="btn btn-primary" #buttonBuscar (click)="SearchAll()">Obtener productos</button>

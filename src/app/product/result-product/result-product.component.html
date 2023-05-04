@@ -1,0 +1,46 @@
+<!-- <div class ="row">
+    <div *ngFor= "let prod of resultSearch"
+          class = "col-md-4 col-sm-6 animate__animated animated__fadeIn">
+        <div class="card">
+            <div class="card body">
+                <p class="card-text">
+                    {{prod.nombreProducto}} - {{prod.stockActual}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<table *ngIf="resultSearch.length > 0" class="animate__animated animate__fadeIn table table-hover">
+    <thead>
+        <tr>
+            <th>
+                #
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Stock
+            </th>                                                            
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor= "let prod of resultSearch; let i = index">
+            <td>
+                {{i + 1}}
+            </td>
+            <td>
+                {{prod.nombreProducto}}
+            </td>          
+            <td>
+                {{prod.stockActual}}
+            </td>         
+            <td>
+                <a [routerLink] = "['/edit-prod',prod.IdProd]">
+                    Ver
+                </a>
+            </td>                                                           
+        </tr>
+    </tbody>            
+</table>
