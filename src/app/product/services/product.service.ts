@@ -3,12 +3,15 @@ import { Injectable } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+import { ProductById } from "../interfaces/productById.interface";
 
 @Injectable()
 export class ProductService {
 
     private _product: Product[] = [];
     private _record: string[] = [];
+    private _oneProduct: ProductById = {};
+
     urlProd:string = environment.apiUri + "/Productos/";
 
     get allProducts() {
@@ -17,6 +20,10 @@ export class ProductService {
 
     get record() {
         return [...this._record];
+    }
+
+    get oneProduct() {
+        return this._oneProduct;
     }
 
     constructor (private http:HttpClient) {
@@ -49,6 +56,10 @@ export class ProductService {
             this._record.push(argument);
             localStorage.setItem('record',JSON.stringify(this._record));
         }
+    }
+
+    SearchProductById(idprod:number): Observable<ProductById>{
+       return this.http.get<ProductById>(`${this.urlProd}${idprod}`);
     }
 
     ClearRecord(){

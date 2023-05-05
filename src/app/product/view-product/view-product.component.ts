@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product.interface';
 import { ProductService } from '../services/product.service';
+import { switchMap} from 'rxjs/operators';
+import { ProductById } from '../interfaces/productById.interface';
 
 @Component({
   selector: 'app-view-product',
@@ -10,13 +12,19 @@ import { ProductService } from '../services/product.service';
 })
 export class ViewProductComponent {
 
-  constructor (private activateRoutes: ActivatedRoute){}
+product: ProductById = {};
 
-  ngOnInit():void{
-    this.activateRoutes.params.subscribe(
-      resp => {
-        console.log(resp)
-      }
-    )
+  constructor (private activateRoutes: ActivatedRoute,
+               private productSevice: ProductService){}
+
+   ngOnInit(): void {
+    this.activateRoutes.params
+      .pipe(
+        switchMap(
+          ({idprod}) => this.productSevice.SearchProductById(idprod))
+        )
+        .subscribe(resp => {
+          this.product = resp;
+        });
   }
 }
