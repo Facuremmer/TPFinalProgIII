@@ -3,14 +3,13 @@ import { Injectable } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
-import { ProductById } from "../interfaces/productById.interface";
+import { ProductCreate } from "../interfaces/productCreate.interface";
 
 @Injectable()
 export class ProductService {
 
     private _product: Product[] = [];
     private _record: string[] = [];
-    private _oneProduct: ProductById = {};
 
     urlProd:string = environment.apiUri + "/Productos/";
 
@@ -22,9 +21,6 @@ export class ProductService {
         return [...this._record];
     }
 
-    get oneProduct() {
-        return this._oneProduct;
-    }
 
     constructor (private http:HttpClient) {
         if (localStorage.getItem('record')){
@@ -58,13 +54,19 @@ export class ProductService {
         }
     }
 
-    SearchProductById(idprod:number): Observable<ProductById>{
-       return this.http.get<ProductById>(`${this.urlProd}${idprod}`);
+    SearchProductById(idprod:number): Observable<Product>{
+       return this.http.get<Product>(`${this.urlProd}${idprod}`);
     }
 
     ClearRecord(){
         this._record;
         localStorage.clear();
         window.location.reload();
+    }
+
+    create(newProd: ProductCreate) {
+        console.log('Calling WebApi');
+        this.http.put(`${this.urlProd}create`, newProd)
+                 .subscribe();
     }
 }

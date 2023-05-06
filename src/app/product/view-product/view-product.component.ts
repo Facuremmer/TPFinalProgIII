@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../interfaces/product.interface';
 import { ProductService } from '../services/product.service';
 import { switchMap} from 'rxjs/operators';
-import { ProductById } from '../interfaces/productById.interface';
 
 @Component({
   selector: 'app-view-product',
@@ -12,7 +11,7 @@ import { ProductById } from '../interfaces/productById.interface';
 })
 export class ViewProductComponent {
 
-product: ProductById = {};
+product: Product = {};
 
   constructor (private activateRoutes: ActivatedRoute,
                private productSevice: ProductService){}

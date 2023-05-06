@@ -9,7 +9,6 @@ import { MainProductComponent } from './main-product/main-product.component';
 import { ProductService } from './services/product.service';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ViewProductComponent } from './view-product/view-product.component';
-//import { CreateProductoComponent } from './create-producto/create-producto.component';
 
 
 @NgModule({
