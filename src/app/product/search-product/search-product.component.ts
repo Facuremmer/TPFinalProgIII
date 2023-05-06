@@ -11,6 +11,11 @@ export class SearchProductComponent  {
 
   @ViewChild("txtBuscar") txtBuscar!:ElementRef<HTMLInputElement>;
   @ViewChild("buttonBuscar") buttonBuscar!:ElementRef<HTMLInputElement>;
+  @ViewChild("buttonClear") buttonClear!:ElementRef<HTMLInputElement>
+
+  get record(){
+    return this.prodService.record;
+  } 
 
   constructor(private prodService:ProductService){
 
@@ -26,6 +31,12 @@ export class SearchProductComponent  {
     if (value.trim()==='') return;
     this.prodService.SearchProductByName(value);
     this.txtBuscar.nativeElement.value = '';
+    console.log(this.prodService.SearchProductByName(value))
   } 
+
+  Clear(){
+    const value = this.buttonClear.nativeElement;
+    this.prodService.ClearRecord();
+   }
 
 }

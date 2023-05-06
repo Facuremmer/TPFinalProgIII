@@ -15,11 +15,11 @@ import { ProductService } from 'src/app/product/services/product.service';
 })
 export class SidebarComponent  {
 
-  @ViewChild("buttonClear") buttonClear!:ElementRef<HTMLInputElement>;
+/*   @ViewChild("buttonClear") buttonClear!:ElementRef<HTMLInputElement>;
 
   get record(){
     return this.prodServices.record;
-  } 
+  }  */
 
  constructor(private prodServices: ProductService){}
  
@@ -27,9 +27,9 @@ export class SidebarComponent  {
   this.prodServices.SearchProductByName(argument);
  }
 
- Clear(){
+/*  Clear(){
   const value = this.buttonClear.nativeElement;
   this.prodServices.ClearRecord();
- }
+ } */
 
 }

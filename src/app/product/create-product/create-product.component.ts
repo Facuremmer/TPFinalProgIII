@@ -16,6 +16,8 @@ export class CreateProductComponent implements OnInit{
       stockActual: [,[Validators.required,Validators.min(0)]]
     }
   )
+
+
   constructor(private formBuilder: FormBuilder,
               private productService: ProductService){ }
 

@@ -16,4 +16,5 @@ export class ResultProductComponent {
 
   constructor(private prodsService: ProductService) { }
 
+  displayedColumns: string[] = ['codigo', 'nombre','stock'];
 }

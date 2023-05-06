@@ -9,19 +9,25 @@ import { MainProductComponent } from './main-product/main-product.component';
 import { ProductService } from './services/product.service';
 import { CreateProductComponent } from './create-product/create-product.component';
 import { ViewProductComponent } from './view-product/view-product.component';
+import { ProductRoute } from './product-routes.module';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
   declarations: [
     ResultProductComponent, 
     SearchProductComponent, 
-    MainProductComponent, CreateProductComponent, ViewProductComponent], 
+    MainProductComponent, 
+    CreateProductComponent, 
+    ViewProductComponent], 
 
 
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ProductRoute,
+    MaterialModule
   ],
   exports: [
     MainProductComponent,

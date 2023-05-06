@@ -1,94 +1,101 @@
-<h2>Nuevo Producto:  </h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <form autocomplete="off"
-              (ngSubmit)= "save()"
-              [formGroup]="miForm">
-              <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Codigo</label>
-                <div class="col-sm-9">
-                  <input type="text" 
-                         class="form-control" 
-                         placeholder="Ingresar Id producto"
-                         formControlName = "idProducto" 
+<form autocomplete="off"
+    (ngSubmit)="save()"
+    [formGroup]="miForm">
+<div fxLayout="row"
+     fxLayoutGap="200px"
+     fxLayout.xs="column">
+     <div fxFlex='100' 
+          fxLayout="column">
+         <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Codigo Producto
+                </mat-label>
+ 
+                  <input matInput 
+                         type="text" 
+                         placeholder="Ingresar Codigo"
+                         formControlName="idProducto"
                          >
                          <span class="form-text text-danger"
-                               *ngIf="idProductoError()"> 
-                            Minimo 3 letras
+                               *ngIf="idProductoError()" >
+                            Minimo 4 números
                         </span>
-                </div>
-            </div>              
+            </mat-form-field>
+         </div>
+         
+         </div>
+         <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">           
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Tipo Producto 
+                </mat-label>
+                <mat-select formControlName="idTipoProducto">
+                    <mat-option value="0" selected></mat-option>
+                    <mat-option value="1" >Pantalon</mat-option>
+                    <mat-option value="2">Campera</mat-option>
+                    <mat-option value="3" >Media</mat-option>
+                    <mat-option value="4">Camisa</mat-option>
+                    <mat-option value="8">Camison</mat-option>
 
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Tipo Producto</label>
-                <div class="col-sm-9">
-                    <select name="dropdown" 
-                         class="form-control"
-                         formControlName="idTipoProducto">
-                        <option value="0" selected></option>
-                        <option value="1" >Pantalon</option>
-                        <option value="2">Campera</option>
-                        <option value="3">Media</option>
-                        <option value="4" >Camisa</option>
-                        <option value="8">Camison</option>
-                    </select>                         
-                    <span class="form-text text-danger"
-                          *ngIf="idTipoProductoError()">
-                        Seleccionar Tipo Producto
-                    </span>
-                </div>
-            </div>            
+                </mat-select>       
+                <span class="form-text text-danger"
+                    *ngIf="idTipoProductoError()" >
+                    Debe elegir una opción
+                </span>
+            </mat-form-field>
+        </div>
 
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Stock Actual</label>
-                <div class="col-sm-9">
-                  <input type="number" 
-                         class="form-control" 
-                         placeholder="Ingresar Stock Actual"
-                         formControlName="stockActual">
-                         <span class="form-text text-danger"
+        <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="20px">   
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Stock Actual
+                </mat-label>
+
+                <input matInput 
+                        type="text" 
+                        placeholder="Stock actual"
+                        formControlName="stockActual"
+                        required>
+                        <span class="form-text text-danger"
                                *ngIf="stockActualError()">
                             Stock Actual mayor o igual que cero
-                         </span>                         
-                </div>
-            </div>            
-           
-            <div class="row">
-                <div class="col">
-                    <button type="submit"
-                            class="btn btn-primary float-end">
-                        Guardar
-                    </button>
-                </div>
+                        </span>     
+            </mat-form-field>
+        </div>   
+
+            <div fxLayout> 
+                <button mat-raised-button
+                        color="primary"
+                        type="submit">
+                    <mat-icon>edit</mat-icon>
+                    Guardar
+                </button>           
             </div>
-        </form>
     </div>
-</div>
+</form>
+<div class="row">
+    <div class="col">
+        <span>Valid</span>
+        <pre>{{miForm.valid}}</pre>
 
-<!-- <div class = "row">
-    <div class = "col">
         <span>Value</span>
-        <pre>{{miForm.value | json }}</pre>
+        <pre>{{miForm.value | json}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{miForm.pristine}}</pre>        
+        <span>Touched</span>
+        <pre>{{miForm.touched}}</pre>                   
+        
     </div>
-</div>
-<div class = "col">
-    <span>Custom</span>
-    <pre>{{miForm.controls.stockActual.errors| json}}</pre>
-</div> -->
-    <div class="row">
-    <span>Valid</span>
-    <pre>{{miForm.valid}}</pre>
 
-    <span>Value</span>
-    <pre>{{miForm.value | json}}</pre>
-
-    <span>Pristine</span>
-    <pre>{{miForm.pristine}}</pre>        
-    <span>Touched</span>
-    <pre>{{miForm.touched}}</pre>       
-
-    <span>Custom</span>
-    <pre>{{miForm.controls.stockActual?.errors| json}}</pre>      
-
-</div>               
+</div>           
