@@ -19,7 +19,7 @@ import { MaterialModule } from '../material/material.module';
     SearchProductComponent, 
     MainProductComponent, 
     CreateProductComponent, 
-    ViewProductComponent], 
+    ViewProductComponent],
 
 
   imports: [

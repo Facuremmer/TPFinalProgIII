@@ -9,13 +9,16 @@
           </button>
       </mat-toolbar>      
       
+
+      
       <mat-nav-list>
           <!-- <a  routerLink="/productos/buscar" 
               mat-list-item
               (click)= "sidenav.toggle()">
               <mat-icon mat-list-icon>lebel</mat-icon>
               Buscar Producto
-          </a>  -->         
+          </a>  --> 
+                  
           <a  routerLink="/productos/agregar" 
               mat-list-item
               (click)= "sidenav.toggle()">
@@ -25,15 +28,9 @@
           <a  routerLink="/productos/buscar" 
               mat-list-item
               (click)= "sidenav.toggle()">
-              <mat-icon mat-list-icon>lebel</mat-icon>
+              <mat-icon mat-list-icon>search</mat-icon>
               Buscar Producto
           </a> 
-          <a routerLinck="/productos/eliminar"
-             mat-list-item
-             (click)= "sidenav.toggle()">
-              <mat-icon mat-list-icon>label</mat-icon>
-              Eliminar producto
-          </a>
       </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar>
@@ -51,81 +48,3 @@
   
 
 </mat-sidenav-container> 
-
-<!-- <mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav mode="push">
-    <mat-toolbar color="primary">
-      <span>Menu</span>
-      <span class="spacer"></span>
-      <button mat-icon-button
-        (click)= "sidenav.toggle()"></button>
-        <mat-icon>home</mat-icon>
-      </button>
-    </mat-toolbar>
-    <mat-nav-list>
-      <a routerLinck="/productos/buscar"
-         mat-list-item
-         (click)= "sidenav.toggle()">
-        <mat-icon mat-list-icon>add</mat-icon>
-        Buscar producto
-      </a>
-      <a routerLinck="/productos/agregar"
-         mat-list-item
-         (click)= "sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
-        Agregar producto
-      </a>
-      <a routerLinck="/productos/eliminar"
-         mat-list-item
-         (click)= "sidenav.toggle()">
-        <mat-icon mat-list-icon>label</mat-icon>
-        Eliminar producto
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-
-
-  <mat-sidenav-container>
-    <mat-toolbar>
-      <button mat-icon-button
-            (click)= "sidenav.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span class="spacer"></span>
-      <span>Chocho</span>
-    </mat-toolbar>
-    <div class="container">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-sidenav-container>
-</mat-sidenav-container> -->
-
-<!-- <h2>Mis Productos</h2>
-<hr>
-<ul class="list-group">
-  <li class="list-group-item"
-      routerLink=""
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true}">
-      Buscar Producto
-  </li>
-  <li class="list-group-item"
-      routerLink="create-prod"
-      routerLinkActive="active">
-      Crear Producto
-  </li>
-  <li>
-    <div class="list-group list-reset">
-      <a href="#"
-        (click)= "search(arg)"
-        class="list-group-item list-group-item-action"
-        *ngFor= "let arg of record">
-         {{arg | titlecase}}
-      </a>
-    </div>
-  </li>
-</ul> -->
-
-<!-- <div>
-  <button type="button" class="btn btn-primary" #buttonClear (click)="Clear()">Borrar historial</button>
-</div> -->

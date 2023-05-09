@@ -1,4 +1,4 @@
-export interface tipeProduct {
-    idProducto: number;
-    nombreProducto: string;
+export interface TypeProduct {
+    idTipoProducto: number;
+    descripcion: string;
 }

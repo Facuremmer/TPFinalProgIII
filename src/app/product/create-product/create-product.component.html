@@ -37,13 +37,9 @@
                     Tipo Producto 
                 </mat-label>
                 <mat-select formControlName="idTipoProducto">
-                    <mat-option value="0" selected></mat-option>
-                    <mat-option value="1" >Pantalon</mat-option>
-                    <mat-option value="2">Campera</mat-option>
-                    <mat-option value="3" >Media</mat-option>
-                    <mat-option value="4">Camisa</mat-option>
-                    <mat-option value="8">Camison</mat-option>
-
+                    <mat-option *ngFor="let typeProd of typeProds" [value]="typeProd.idTipoProducto">
+                        {{typeProd.descripcion}}
+                    </mat-option>
                 </mat-select>       
                 <span class="form-text text-danger"
                     *ngIf="idTipoProductoError()" >
@@ -76,14 +72,23 @@
             <div fxLayout> 
                 <button mat-raised-button
                         color="primary"
-                        type="submit">
+                        type="submit"
+                        [disabled]="miForm.invalid">
                     <mat-icon>edit</mat-icon>
                     Guardar
-                </button>           
+                </button>  
+                <button mat-raised-button
+                        color="primary"
+                        (click)="goBack()">
+                    <mat-icon>back</mat-icon>
+                    Atras
+                </button>         
             </div>
     </div>
 </form>
-<div class="row">
+
+
+<!-- <div class="row">
     <div class="col">
         <span>Valid</span>
         <pre>{{miForm.valid}}</pre>
@@ -99,3 +104,4 @@
     </div>
 
 </div>           
+ -->

@@ -15,6 +15,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table'  
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatTreeModule } from '@angular/material/tree'
 
 
 
@@ -37,7 +38,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatSnackBarModule,
     MatToolbarModule,
     MatTableModule ,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTreeModule
   ]
 })
 export class MaterialModule { }

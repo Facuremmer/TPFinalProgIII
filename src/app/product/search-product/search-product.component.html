@@ -1,13 +1,18 @@
 <mat-form-field class="example-full-width">
     <input type="text" 
-       class="form-control"
        matInput 
        aria-label="Narrow your search"
        placeholder="Buscar Productos..."
        (keyup.enter)="SearchByName()"
-       #txtBuscar> 
-       
-</mat-form-field>
-
-<button mat-button type="button" class="btn btn-primary" #buttonBuscar (click)="SearchAll()">Obtener productos</button>
+       #txtBuscar
+       [matAutocomplete]="auto"> 
+       <mat-autocomplete #auto="matAutocomplete" >
+            <mat-option *ngFor="let arg of record" (click)="search(arg)">
+                {{arg}}
+            </mat-option>
+      </mat-autocomplete> 
+</mat-form-field> 
+  
 <button mat-button type="button" class="btn btn-primary" #buttonClear (click)="Clear()">Borrar historial</button>
+<button mat-button type="button" class="btn btn-primary" #buttonBuscar (click)="SearchAll()">Obtener todos</button>
+<button mat-button type="button" class="btn btn-primary" #buttonClear (click)="goBack()">Atras</button>

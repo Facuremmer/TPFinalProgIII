@@ -4,6 +4,8 @@ import { Product } from "../interfaces/product.interface";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
 import { ProductCreate } from "../interfaces/productCreate.interface";
+import { TypeProduct } from "../interfaces/typeProduct.interface";
+import { Location } from "@angular/common";
 
 @Injectable()
 export class ProductService {
@@ -12,7 +14,9 @@ export class ProductService {
     private _record: string[] = [];
 
     urlProd:string = environment.apiUri + "/Productos/";
+    urlTypeProd:string = environment.apiUri + "/TipoProducto/";
 
+    
     get allProducts() {
         return [...this._product];
     }
@@ -37,6 +41,10 @@ export class ProductService {
                     this._product = resp;
                 }
             );
+    }
+
+    nameProducts(){
+        return this.http.get<TypeProduct[]>(`${this.urlTypeProd}All`);
     }
 
     SearchProductByName(argument:string){
@@ -65,8 +73,17 @@ export class ProductService {
     }
 
     create(newProd: ProductCreate) {
-        console.log('Calling WebApi');
         this.http.put(`${this.urlProd}create`, newProd)
                  .subscribe();
+    }
+
+    edit(newProd: ProductCreate){
+        this.http.put(`${this.urlProd}update`, newProd)
+                 .subscribe();
+    }
+
+    eliminate(id: number){
+        const urlDelete = this.urlProd + id
+        this.http.delete(urlDelete).subscribe();
     }
 }

@@ -1,6 +1,5 @@
-import { ThisReceiver } from '@angular/compiler';
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ProductService } from 'src/app/product/services/product.service';
+import { Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-sidebar',
@@ -14,22 +13,5 @@ import { ProductService } from 'src/app/product/services/product.service';
   ]  
 })
 export class SidebarComponent  {
-
-/*   @ViewChild("buttonClear") buttonClear!:ElementRef<HTMLInputElement>;
-
-  get record(){
-    return this.prodServices.record;
-  }  */
-
- constructor(private prodServices: ProductService){}
- 
- search(argument: string){
-  this.prodServices.SearchProductByName(argument);
- }
-
-/*  Clear(){
-  const value = this.buttonClear.nativeElement;
-  this.prodServices.ClearRecord();
- } */
-
+ constructor(){}
 }
