@@ -8,22 +8,11 @@ import { ViewProductComponent } from './product/view-product/view-product.compon
 
 const routes: Routes = [
   {
-    path: '',
-    component: MainProductComponent,
-    pathMatch: 'full'
+    path: 'productos',
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule),
   },
-  {
-    path: 'create-prod',
-    component: CreateProductComponent
-  },
-  {
-    path: 'edit-prod/:idprod',
-    component: ViewProductComponent
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
+ 
+  //Aca abajo poner todos las otras rutas igual que la de productos.
 ]
 
 @NgModule({

@@ -3,17 +3,20 @@ import { Injectable } from "@angular/core";
 import { Product } from "../interfaces/product.interface";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
-import { ProductById } from "../interfaces/productById.interface";
+import { ProductCreate } from "../interfaces/productCreate.interface";
+import { TypeProduct } from "../interfaces/typeProduct.interface";
+import { Location } from "@angular/common";
 
 @Injectable()
 export class ProductService {
 
     private _product: Product[] = [];
     private _record: string[] = [];
-    private _oneProduct: ProductById = {};
 
     urlProd:string = environment.apiUri + "/Productos/";
+    urlTypeProd:string = environment.apiUri + "/TipoProducto/";
 
+    
     get allProducts() {
         return [...this._product];
     }
@@ -22,9 +25,6 @@ export class ProductService {
         return [...this._record];
     }
 
-    get oneProduct() {
-        return this._oneProduct;
-    }
 
     constructor (private http:HttpClient) {
         if (localStorage.getItem('record')){
@@ -43,6 +43,10 @@ export class ProductService {
             );
     }
 
+    nameProducts(){
+        return this.http.get<TypeProduct[]>(`${this.urlTypeProd}All`);
+    }
+
     SearchProductByName(argument:string){
         const params = new HttpParams().set('productName',argument); 
 
@@ -58,13 +62,28 @@ export class ProductService {
         }
     }
 
-    SearchProductById(idprod:number): Observable<ProductById>{
-       return this.http.get<ProductById>(`${this.urlProd}${idprod}`);
+    SearchProductById(idprod:number): Observable<Product>{
+       return this.http.get<Product>(`${this.urlProd}${idprod}`);
     }
 
     ClearRecord(){
         this._record;
         localStorage.clear();
         window.location.reload();
+    }
+
+    create(newProd: ProductCreate) {
+        this.http.put(`${this.urlProd}create`, newProd)
+                 .subscribe();
+    }
+
+    edit(newProd: ProductCreate){
+        this.http.put(`${this.urlProd}update`, newProd)
+                 .subscribe();
+    }
+
+    eliminate(id: number){
+        const urlDelete = this.urlProd + id
+        this.http.delete(urlDelete).subscribe();
     }
 }
