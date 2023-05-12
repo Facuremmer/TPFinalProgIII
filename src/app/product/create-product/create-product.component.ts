@@ -15,7 +15,7 @@ export class CreateProductComponent implements OnInit{
 
   miForm = this.formBuilder.group (
     {
-      idProducto:[,[Validators.required, Validators.minLength(4)]],
+      idProducto:[,[Validators.required, Validators.min(0)]],
       idTipoProducto: [,[Validators.required,Validators.min(0)]],
       stockActual: [,[Validators.required,Validators.min(0)]]
     }
@@ -34,31 +34,11 @@ export class CreateProductComponent implements OnInit{
       resp => {
           this.typeProds = resp;
       });
-    //Con esto puedo pre cargarle un valor a uno de los campos, se puede poner igual en una función.
-    /* const ran = 5;
-    this.miForm.reset(
-      {
-        stockActual: 5
-      }
-    ); */
-  }
-
-  idProductoError(){
-    return this.miForm.controls.idProducto.errors &&
-           this.miForm.controls.idProducto.touched;
-    ; 
-    
   }
 
   idTipoProductoError(){
     return this.miForm.controls.idTipoProducto.errors &&
            this.miForm.controls.idTipoProducto.touched; 
-    
-  }
-
-  stockActualError(){
-    return this.miForm.controls.stockActual.errors &&
-           this.miForm.controls.stockActual.touched; 
     
   }
 

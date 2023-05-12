@@ -26,8 +26,8 @@ export class ResultProductComponent {
 
   displayedColumns: string[] = ['codigo', 'nombre','stock', 'ver'];
 
+
   eliminateProduct(id:number){
-    console.log(id);
     this.prodsService.eliminate(id);
 
     this._snackBar.open('El producto fue eliminado con exito', '',{
@@ -37,9 +37,6 @@ export class ResultProductComponent {
      })
     
      location.reload();
-
-     this.prodsService.SearchAllProducts();
-     this.resultSearch
      
   }
 }

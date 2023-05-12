@@ -2,7 +2,7 @@
     <input type="text" 
        matInput 
        aria-label="Narrow your search"
-       placeholder="Buscar Productos..."
+       placeholder="Buscar persona..."
        (keyup.enter)="SearchByName()"
        #txtBuscar
        [matAutocomplete]="auto"> 
@@ -19,7 +19,6 @@
   </button>
 
 <button mat-button type="button" class="btn btn-primary" (click)="Clear()">Borrar historial</button>
-<button mat-button type="button" class="btn btn-primary" (click)="SearchAll()">Obtener todos</button>
-<button mat-button type="button" class="btn btn-primary" (click)="goCreate()">Crear producto</button>
+<button mat-button type="button" class="btn btn-primary" (click)="SearchAll()">Obtener todas</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goCreate()">Agregar persona</button>
 <button mat-button type="button" class="btn btn-primary" (click)="goBack()">Atras</button>
-

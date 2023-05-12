@@ -1,23 +1,22 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Product } from "../interfaces/product.interface";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
-import { ProductCreate } from "../interfaces/productCreate.interface";
-import { TypeProduct } from "../interfaces/typeProduct.interface";
+import { Person } from "../interfaces/person.interface";
+
 
 @Injectable()
-export class ProductService {
+export class PersonService {
 
-    private _product: Product[] = [];
+    private _person: Person[] = [];
     private _record: string[] = [];
 
-    urlProd:string = environment.apiUri + "/Productos/";
-    urlTypeProd:string = environment.apiUri + "/TipoProducto/";
+    urlPers:string = environment.apiUri + "/Persona/";
+    // urlTypeProd:string = environment.apiUri + "/TipoProducto/";
 
     
-    get allProducts() {
-        return [...this._product];
+    get allPersons() {
+        return [...this._person];
     }
 
     get record() {
@@ -33,26 +32,26 @@ export class ProductService {
 
     }
 
-    SearchAllProducts(){
-        this.http.get<Product[]>(`${this.urlProd}All`)
+    SearchAllPerson(){
+        this.http.get<Person[]>(`${this.urlPers}All`)
             .subscribe(
                 resp => {
-                    this._product = resp;
+                    this._person = resp;
                 }
             );
     }
 
-    nameProducts(){
+    /* nameProducts(){
         return this.http.get<TypeProduct[]>(`${this.urlTypeProd}All`);
-    }
+    } */
 
-    SearchProductByName(argument:string){
-        const params = new HttpParams().set('productName',argument); 
+    SearchPersonByName(argument:string){
+        const params = new HttpParams().set('personName',argument); 
 
-        this.http.get<Product[]>(`${this.urlProd}byName?`, {params})
+        this.http.get<Person[]>(`${this.urlPers}byName?`, {params})
         .subscribe(
             resp => {
-                this._product = resp;
+                this._person = resp;
             }
         );
         if (!this._record.includes(argument)){
@@ -61,8 +60,8 @@ export class ProductService {
         }
     }
 
-    SearchProductById(idprod:number): Observable<Product>{
-       return this.http.get<Product>(`${this.urlProd}${idprod}`);
+    SearchPersonByDNI(idpersn:number): Observable<Person>{
+       return this.http.get<Person>(`${this.urlPers}${idpersn}`);
     }
 
     ClearRecord(){
@@ -71,18 +70,18 @@ export class ProductService {
         window.location.reload();
     }
 
-    create(newProd: ProductCreate) {
-        this.http.put(`${this.urlProd}create`, newProd)
+    create(newPersn: Person) {
+        this.http.put(`${this.urlPers}create`, newPersn)
                  .subscribe();
     }
 
-    edit(newProd: ProductCreate){
-        this.http.put(`${this.urlProd}update`, newProd)
+    edit(newPersn: Person){
+        this.http.put(`${this.urlPers}update`, newPersn)
                  .subscribe();
     }
 
     eliminate(id: number){
-        const urlDelete = this.urlProd + id
+        const urlDelete = this.urlPers + id
         this.http.delete(urlDelete).subscribe();
-    }
-}
+    } 
+} 

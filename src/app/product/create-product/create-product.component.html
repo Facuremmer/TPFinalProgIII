@@ -16,14 +16,17 @@
                 </mat-label>
  
                   <input matInput 
-                         type="text" 
+                         type="number" 
                          placeholder="Ingresar Codigo"
                          formControlName="idProducto"
                          >
-                         <span class="form-text text-danger"
-                               *ngIf="idProductoError()" >
-                            Minimo 4 números
-                        </span>
+                         <div *ngIf="miForm.get('idProducto')?.touched && miForm.get('idProducto')?.errors?.['required']"
+                               class="alert alert-danger">Este campo es obligatorio
+                        </div>
+                        <div *ngIf="miForm.get('idProducto')?.touched && miForm.get('idProducto')?.errors?.['min']"
+                              class="alert alert-danger">El número debe ser mayor que
+                            {{ miForm.get('idProducto')?.errors?.['min']?.min}} 
+                        </div>
             </mat-form-field>
          </div>
          
@@ -62,10 +65,13 @@
                         placeholder="Stock actual"
                         formControlName="stockActual"
                         required>
-                        <span class="form-text text-danger"
-                               *ngIf="stockActualError()">
-                            Stock Actual mayor o igual que cero
-                        </span>     
+                        <div *ngIf="miForm.get('stockActual')?.touched && miForm.get('stockActual')?.errors?.['required']"
+                               class="alert alert-danger">Este campo es obligatorio
+                        </div>
+                        <div *ngIf="miForm.get('stockActual')?.touched && miForm.get('stockActual')?.errors?.['min']"
+                              class="alert alert-danger">El número debe ser mayor que
+                            {{ miForm.get('stockActual')?.errors?.['min']?.min}} 
+                        </div>     
             </mat-form-field>
         </div>   
 

@@ -1,50 +1,45 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ProductService } from '../services/product.service';
-import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { PersonService } from '../services/person-service';
 import { Router } from '@angular/router';
-
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-search-product',
-  templateUrl: './search-product.component.html',
-  styles: [
-  ]
+  selector: 'app-search-person',
+  templateUrl: './search-person.component.html',
 })
-
-export class SearchProductComponent  {
-
+export class SearchPersonComponent {
   urlCreate:string = environment.apiUri + "/Productos/agregar";
   
   @ViewChild("txtBuscar") txtBuscar!:ElementRef<HTMLInputElement>;
 
   get record(){
-    return this.prodService.record;
+    return this.persnService.record;
   } 
 
-  constructor(private prodService:ProductService,
+  constructor(private persnService:PersonService,
               private location: Location,
               private  router: Router){
 
   }
  
    SearchAll (){
-    this.prodService.SearchAllProducts();
+    this.persnService.SearchAllPerson();
   } 
  
   SearchByName (){
     const value = this.txtBuscar.nativeElement.value;
     if (value.trim()==='') return;
-    this.prodService.SearchProductByName(value);
+    this.persnService.SearchPersonByName(value);
     this.txtBuscar.nativeElement.value = ''; 
   } 
 
   search(argument: string){
-    this.prodService.SearchProductByName(argument);
+    this.persnService.SearchPersonByName(argument);
    }
 
   Clear(){
-    this.prodService.ClearRecord();
+    this.persnService.ClearRecord();
    }
 
    goBack():void{
@@ -52,7 +47,7 @@ export class SearchProductComponent  {
   }
 
   goCreate(): void{
-    this.router.navigate(['productos/agregar'])
+    this.router.navigate(['persona/agregar'])
   }
 
 }

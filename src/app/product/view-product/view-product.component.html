@@ -14,7 +14,7 @@
             <mat-form-field fxFlex='100'
                             fxLayout.xs="column">
                 <mat-label>
-                    Codigo: {{product.idProducto}}
+                    Codigo:
                 </mat-label>
  
                   <input matInput 
@@ -23,8 +23,8 @@
                          formControlName="idProducto"
                          >
                          <span class="form-text text-danger"
-                               *ngIf="idProductoError()" >
-                            Minimo 4 números
+                               *ngIf="hasError('idProducto')" >
+                            Minimo 4 digitos positivos
                         </span>
             </mat-form-field>
          </div>
@@ -36,15 +36,15 @@
             <mat-form-field fxFlex='100'
                             fxLayout.xs="column">
                 <mat-label>
-                    Tipo: {{product.nombreProducto}}
+                    Tipo:
                 </mat-label>
-                <mat-select formControlName="idTipoProducto">
+                <mat-select formControlName="idTipoProducto" >
                     <mat-option *ngFor="let typeProd of typeProds" [value]="typeProd.idTipoProducto">
                         {{typeProd.descripcion}}
                     </mat-option>
                 </mat-select>       
                 <span class="form-text text-danger"
-                    *ngIf="idTipoProductoError()" >
+                    *ngIf="hasError('idTipoProducto')" >
                     Debe elegir una opción
                 </span>
             </mat-form-field>
@@ -56,7 +56,7 @@
             <mat-form-field fxFlex='100'
                             fxLayout.xs="column">
                 <mat-label>
-                    Stock Actual: {{product.stockActual}}
+                    Stock Actual:
                 </mat-label>
                 <input matInput 
                         type="number" 
@@ -64,7 +64,7 @@
                         formControlName="stockActual"
                         required>
                         <span class="form-text text-danger"
-                               *ngIf="stockActualError()">
+                               *ngIf="hasError('stockActual')">
                             Stock Actual mayor o igual que cero
                         </span>     
             </mat-form-field>

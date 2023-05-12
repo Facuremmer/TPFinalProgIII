@@ -18,7 +18,7 @@
             <a class="pointer" [routerLink] = "['/edit-prod',element.idProducto]" style="color:blue">
                 <mat-icon>edit</mat-icon>
             </a>
-            <a class="pointer" #eliminateButtom (click)="eliminateProduct(element.idProducto)" style="color: red"> 
+            <a class="pointer" (click)="eliminateProduct(element.idProducto)" style="color: red"> 
                 <mat-icon>delete</mat-icon>
             </a>
         </td>
