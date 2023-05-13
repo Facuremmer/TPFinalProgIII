@@ -22,7 +22,8 @@ export class ViewProductComponent implements OnInit{
     return this.formBuilder.group({
       idProducto:[[Validators.required, Validators.minLength(4),Validators.min(0)]],
       idTipoProducto: [,[Validators.required,Validators.min(0)]],
-      stockActual: [,[Validators.required,Validators.min(0)]]
+      stockActual: [,[Validators.required,Validators.min(0)]],
+      precio: [,[Validators.required,Validators.min(0)]]
     })
   }
 
@@ -62,7 +63,8 @@ export class ViewProductComponent implements OnInit{
     this.miForm.patchValue({
       idProducto:this.product.idProducto,
       idTipoProducto:this.product.idTipoProducto, 
-      stockActual: (this.product.stockActual)
+      stockActual: this.product.stockActual,
+      precio: this.product.precio,
     })
   } 
 
@@ -84,6 +86,7 @@ export class ViewProductComponent implements OnInit{
      idProducto: this.miForm.controls['idProducto'].value,
      idTipoProducto: this.miForm.controls['idTipoProducto'].value,
      stockActual: this.miForm.controls['stockActual'].value,
+     precio: this.miForm.controls['precio'].value,
    }
 
    this.productSevice.edit(newprod);

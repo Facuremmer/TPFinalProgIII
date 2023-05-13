@@ -3,4 +3,5 @@ export interface ProductId {
     idTipoProducto?: number;
     nombreProducto?: string;
     stockActual?: number;
+    precio?: number;
 }

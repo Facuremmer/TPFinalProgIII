@@ -55,4 +55,8 @@ export class SearchProductComponent  {
     this.router.navigate(['productos/agregar'])
   }
 
+  goCreateType(): void{
+    this.router.navigate(['productos/agregarTipo'])
+  }
+
 }

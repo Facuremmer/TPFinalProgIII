@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { ProductModule } from './product/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonModule } from './person/person.module';
+import { AdressModule } from './adress/adress.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PersonModule } from './person/person.module';
     ProductModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    PersonModule
+    PersonModule,
+    AdressModule
   ],
   providers: [],
   bootstrap: [AppComponent]

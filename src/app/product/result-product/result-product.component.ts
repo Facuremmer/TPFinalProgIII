@@ -24,7 +24,7 @@ export class ResultProductComponent {
               private _snackBar: MatSnackBar,) { }
 
 
-  displayedColumns: string[] = ['codigo', 'nombre','stock', 'ver'];
+  displayedColumns: string[] = ['codigo', 'nombre','precio','stock', 'ver'];
 
 
   eliminateProduct(id:number){

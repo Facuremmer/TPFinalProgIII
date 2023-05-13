@@ -2,20 +2,21 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
-import { Person } from "../interfaces/person.interface";
-import { PersonDNI } from "../interfaces/personDNI.interface";
+import { Adress } from "../interfaces/adress.interface";
+import { AdressUpdate } from "../interfaces/adressUpdate.interface";
+import { AdressCreate } from "../interfaces/adressCreate.interface";
 
 
 @Injectable()
-export class PersonService {
+export class AdressService {
 
-    private _person: Person[] = [];
+    private _adress: Adress[] = [];
     private _record: string[] = [];
 
-    urlPers:string = environment.apiUri + "/Persona/";
-    
-    get allPersons() {
-        return [...this._person];
+    urlDirec:string = environment.apiUri + "/Dirección/";
+
+    get allAdress() {
+        return [...this._adress];
     }
 
     get record() {
@@ -31,26 +32,22 @@ export class PersonService {
 
     }
 
-    SearchAllPerson(){
-        this.http.get<Person[]>(`${this.urlPers}All`)
+    SearchAllAdress(){
+        this.http.get<Adress[]>(`${this.urlDirec}All`)
             .subscribe(
                 resp => {
-                    this._person = resp;
+                    this._adress = resp;
                 }
             );
     }
 
-    SearchAllDNI(){
-       return this.http.get<Person[]>(`${this.urlPers}AllDni`)
-    }
+    SearchAdressByStreet(argument:string){
+        const params = new HttpParams().set('productName',argument); 
 
-    SearchPersonByName(argument:string){
-        const params = new HttpParams().set('personName',argument); 
-
-        this.http.get<Person[]>(`${this.urlPers}byName?`, {params})
+        this.http.get<Adress[]>(`${this.urlDirec}byName?`, {params})
         .subscribe(
             resp => {
-                this._person = resp;
+                this._adress = resp;
             }
         );
         if (!this._record.includes(argument)){
@@ -59,8 +56,8 @@ export class PersonService {
         }
     }
 
-    SearchPersonByDNI(idpersn:number): Observable<Person>{
-       return this.http.get<Person>(`${this.urlPers}${idpersn}`);
+    SearchAdresstById(idAdr:number): Observable<Adress>{
+       return this.http.get<Adress>(`${this.urlDirec}${idAdr}`);
     }
 
     ClearRecord(){
@@ -69,18 +66,18 @@ export class PersonService {
         window.location.reload();
     }
 
-    create(newPersn: Person) {
-        this.http.put(`${this.urlPers}create`, newPersn)
+    create(newProd: AdressCreate) {
+        this.http.put(`${this.urlDirec}create`, newProd)
                  .subscribe();
     }
 
-    edit(newPersn: Person){
-        this.http.put(`${this.urlPers}update`, newPersn)
+    edit(newProd: AdressUpdate){
+        this.http.put(`${this.urlDirec}update`, newProd)
                  .subscribe();
     }
 
     eliminate(id: number){
-        const urlDelete = this.urlPers + id
+        const urlDelete = this.urlDirec + id
         this.http.delete(urlDelete).subscribe();
-    } 
-} 
+    }
+}

@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
 import { ProductCreate } from "../interfaces/productCreate.interface";
 import { TypeProduct } from "../interfaces/typeProduct.interface";
+import { TypeProductCreate } from "../interfaces/typeProductCreate.interface";
 
 @Injectable()
 export class ProductService {
@@ -73,6 +74,11 @@ export class ProductService {
 
     create(newProd: ProductCreate) {
         this.http.put(`${this.urlProd}create`, newProd)
+                 .subscribe();
+    }
+
+    createTypeProd(newTypeProd: TypeProductCreate) {
+        this.http.put(`${this.urlTypeProd}create`, newTypeProd)
                  .subscribe();
     }
 

@@ -11,6 +11,7 @@ import { CreateProductComponent } from './create-product/create-product.componen
 import { ViewProductComponent } from './view-product/view-product.component';
 import { ProductRoute } from './product-routes.module';
 import { MaterialModule } from '../material/material.module';
+import { CreateTypeProductComponent } from './create-type-product/create-type-product.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { MaterialModule } from '../material/material.module';
     SearchProductComponent, 
     MainProductComponent, 
     CreateProductComponent, 
-    ViewProductComponent],
+    ViewProductComponent,
+    CreateTypeProductComponent],
 
 
   imports: [
@@ -33,7 +35,6 @@ import { MaterialModule } from '../material/material.module';
     MainProductComponent,
     SearchProductComponent,
     ResultProductComponent,
-
   ],
   providers: [
     ProductService
