@@ -10,6 +10,7 @@ import { ProductModule } from './product/product.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonModule } from './person/person.module';
 import { AdressModule } from './adress/adress.module';
+import { ProviderModule } from './provider/provider.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { AdressModule } from './adress/adress.module';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     PersonModule,
-    AdressModule
+    AdressModule,
+    ProviderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

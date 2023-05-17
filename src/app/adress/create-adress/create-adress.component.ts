@@ -2,11 +2,9 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { AdressService } from 'src/app/adress/services/adress.service';
 import { PersonService } from 'src/app/person/services/person-service';
 import { AdressCreate } from '../interfaces/adressCreate.interface';
-import { Person } from 'src/app/person/interfaces/person.interface';
 import { PersonDNI } from 'src/app/person/interfaces/personDNI.interface';
 
 @Component({
@@ -39,7 +37,6 @@ export class CreateAdressComponent implements OnInit {
     .subscribe(
       resp => {
           this.persons = resp;
-          console.log(this.persons)
       });
   }
 

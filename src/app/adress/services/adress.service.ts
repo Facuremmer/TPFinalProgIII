@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { Adress } from "../interfaces/adress.interface";
 import { AdressUpdate } from "../interfaces/adressUpdate.interface";
 import { AdressCreate } from "../interfaces/adressCreate.interface";
+import { AdressId } from "../interfaces/adressId.interface";
 
 
 @Injectable()
@@ -41,8 +42,12 @@ export class AdressService {
             );
     }
 
+    SearchAllId(){
+        return this.http.get<AdressId[]>(`${this.urlDirec}AllId`)
+     }
+
     SearchAdressByStreet(argument:string){
-        const params = new HttpParams().set('productName',argument); 
+        const params = new HttpParams().set('adressName',argument); 
 
         this.http.get<Adress[]>(`${this.urlDirec}byName?`, {params})
         .subscribe(

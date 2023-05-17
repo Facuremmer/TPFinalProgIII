@@ -6,7 +6,6 @@ import { AdressService } from '../services/adress.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs';
-import { AdressUpdate } from '../interfaces/adressUpdate.interface';
 import { AdressCreate } from '../interfaces/adressCreate.interface';
 import { Person } from 'src/app/person/interfaces/person.interface';
 import { Adress } from '../interfaces/adress.interface';
@@ -49,7 +48,7 @@ export class ViewAdressComponent {
         )
         .subscribe(resp => {
           this.adress = resp;
-          this.OnPathValueProduct(); 
+          this.OnPathValueAdress(); 
         })
 
         this.personService.SearchAllDNI()
@@ -61,7 +60,7 @@ export class ViewAdressComponent {
           this.miForm = this.initForm();   
   }
 
-    OnPathValueProduct():void {
+    OnPathValueAdress():void {
     this.miForm.patchValue({
       dni: this.adress.dni,
       provincia: this.adress.provincia, 

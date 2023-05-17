@@ -13,7 +13,7 @@ export class CreatePersonComponent {
 
   miForm = this.formBuilder.group (
     {
-      idCuit_Dni:[,[Validators.required, Validators.min(3000000), Validators.max(99999999)]],
+      idCuit_Dni:[,[Validators.required, Validators.min(3000000), Validators.max(99999999999)]],
       nombreCompleto: [,Validators.required, ],
     }
   )

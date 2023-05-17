@@ -1,0 +1,24 @@
+<mat-form-field class="example-full-width">
+    <input type="text" 
+       matInput 
+       aria-label="Narrow your search"
+       placeholder="Buscar Sucursal..."
+       (keyup.enter)="SearchByBranch()"
+       #txtBuscar
+       [matAutocomplete]="auto"> 
+       <mat-autocomplete #auto="matAutocomplete" >
+            <mat-option *ngFor="let arg of record" (click)="search(arg)">
+                {{arg}}
+            </mat-option>
+      </mat-autocomplete> 
+</mat-form-field> 
+  
+
+<button mat-icon-button color="wait" (click)="SearchByBranch()" >
+    <mat-icon>search</mat-icon>
+  </button>
+
+<button mat-button type="button" class="btn btn-primary" (click)="Clear()">Borrar historial</button>
+<button mat-button type="button" class="btn btn-primary" (click)="SearchAll()">Obtener todas</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goCreate()">Crear Venta</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goBack()">Atras</button>
