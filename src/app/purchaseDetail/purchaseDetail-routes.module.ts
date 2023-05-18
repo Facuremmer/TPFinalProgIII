@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CreatePurchaseDetailComponent,
   },
   {
-    path: 'edit-PurchaseDetail/:idPurchaseDetail',
+    path: 'edit-PurchaseDetail/:idDetalleCompra',
     component: ViewPurchaseDetailComponent
   },
 ]

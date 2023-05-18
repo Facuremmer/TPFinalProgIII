@@ -1,5 +1,5 @@
 export interface Customer {
-    id:             number;
-    dni:            number;
-    nombreCompleto: string;
+    id?:             number;
+    dni?:            number;
+    nombreCompleto?: string;
 }

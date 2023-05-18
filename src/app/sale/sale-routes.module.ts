@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CreateSaleComponent,
   },
   {
-    path: 'edit-Sale/:idVenta',
+    path: 'edit-Sale/:saleId',
     component: ViewSaleComponent
   },
 ]

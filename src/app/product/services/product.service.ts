@@ -6,10 +6,12 @@ import { Observable } from "rxjs";
 import { ProductCreate } from "../interfaces/productCreate.interface";
 import { TypeProduct } from "../interfaces/typeProduct.interface";
 import { TypeProductCreate } from "../interfaces/typeProductCreate.interface";
+import { IdProduct } from "../interfaces/idProduct.interface";
 
 @Injectable()
 export class ProductService {
 
+    private _productId: IdProduct [] = [];
     private _product: Product[] = [];
     private _record: string[] = [];
 
@@ -23,6 +25,10 @@ export class ProductService {
 
     get record() {
         return [...this._record];
+    }
+
+    get allProductsId() {
+        return [...this._productId];
     }
 
 
@@ -41,6 +47,10 @@ export class ProductService {
                     this._product = resp;
                 }
             );
+    }
+
+    SearchAllProductsId(){
+        return this.http.get<IdProduct[]>(`${this.urlProd}AllId`);
     }
 
     nameProducts(){

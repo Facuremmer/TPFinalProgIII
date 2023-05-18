@@ -1,7 +1,9 @@
 export interface SaleDetail {
-    idDetalleVenta: number;
-    precio:    number;
-    cantidad:  number;
-    descuento: number;
-    recargo:   number;
+    idDetalleVenta?: number;
+    idVenta?: number;
+    idProducto?: number;
+    precio?:    number;
+    cantidad?:  number;
+    descuento?: number;
+    recargo?:   number;
 }

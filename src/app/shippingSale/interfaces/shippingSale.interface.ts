@@ -1,5 +1,7 @@
 export interface ShippingSale {
-    idCodigoDeSeguimiento: string;
-    correo:                string;
-    sucursal:              string;
+    idCodigoDeSeguimiento?: number;
+    idDireccion?:           number;
+    idDetalleDeVenta?:      number;
+    correo?:                string;
+    sucursal?:              string;
 }

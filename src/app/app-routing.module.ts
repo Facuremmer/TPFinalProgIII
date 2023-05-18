@@ -55,7 +55,6 @@ const routes: Routes = [
     loadChildren: () => import('./sale/sale.module').then(m => m.SaleModule),
   },
  
-  //Aca abajo poner todos las otras rutas igual que la de productos.
 ]
 
 @NgModule({

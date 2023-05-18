@@ -1,1 +1,106 @@
-<p>view-shipping-purchase works!</p>
+<form autocomplete="off"
+    (ngSubmit)="save()"
+    [formGroup]="miForm">
+<div fxLayout="row"
+     fxLayoutGap="200px"
+     fxLayout.xs="column">
+     <div fxFlex='100' 
+          fxLayout="column">
+          <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Id Codigo De Seguimiento:
+                </mat-label>
+                  <input matInput 
+                         type="number" 
+                         placeholder=""
+                         formControlName="idCodigoDeSeguimiento"
+                         >
+                         <span class="form-text text-danger"
+                            *ngIf="hasError('idCodigoDeSeguimiento')" >
+                            Este campo es obligatorio
+                </span> 
+            </mat-form-field>
+         </div>
+         </div>
+
+         <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">           
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    DNI/CUIT Proveedor:
+                </mat-label>
+                <mat-select formControlName="idDetalleCompra" >
+                    <mat-option *ngFor="let purchaseDetail of purchaseDetails" [value]="purchaseDetail.idDetalleCompra">
+                        {{purchaseDetail.idDetalleCompra}}
+                    </mat-option>
+                </mat-select>       
+                  <span class="form-text text-danger"
+                    *ngIf="hasError('idDetalleCompra')" >
+                    Debe elegir una opción
+                </span>  
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Correo:
+                </mat-label> 
+                  <input matInput 
+                         type="text" 
+                         placeholder=""
+                         formControlName="correo"
+                         >
+                          <span class="form-text text-danger"
+                               *ngIf="hasError('correo')" >
+                               Este campo es obligatorio
+                        </span> 
+            </mat-form-field>
+         </div>   
+        </div>       
+
+         <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                   Sucursal:
+                </mat-label> 
+                  <input matInput 
+                         type="text" 
+                         placeholder=""
+                         formControlName="sucursal"
+                         >
+                        <span class="form-text text-danger"
+                               *ngIf="hasError('sucursal')" >
+                               Este campo es obligatorio
+                        </span> 
+            </mat-form-field>
+         </div>     
+
+            <div fxLayout> 
+                <button mat-raised-button
+                        color="primary"
+                        type="submit"
+                        [disabled]="miForm.invalid">
+                    <mat-icon>edit</mat-icon>
+                    Guardar
+                </button> 
+                <button mat-raised-button
+                        color="primary"
+                        (click)="goBack()">
+                    <mat-icon>back</mat-icon>
+                    Atras
+                </button>           
+            </div>
+</form> 

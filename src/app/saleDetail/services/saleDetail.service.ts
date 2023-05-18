@@ -54,8 +54,8 @@ export class SaleDetailService {
         return this.http.get<SaleDetailId[]>(`${this.urlSaleDetail}AllId`)
      }
 
-    searchSaleDetailById(saleDetailId: number): Observable<SaleDetail> {
-        return this.http.get<SaleDetail>(`${this.urlSaleDetail}${saleDetailId}`);
+    searchSaleDetailById(idDetalleVenta: number): Observable<SaleDetail> {
+        return this.http.get<SaleDetail>(`${this.urlSaleDetail}${idDetalleVenta}`);
     }
 
     clearRecord() {

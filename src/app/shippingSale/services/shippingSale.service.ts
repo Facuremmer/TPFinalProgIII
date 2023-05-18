@@ -37,8 +37,8 @@ export class ShippingSaleService {
             );
     }
 
-    searchShippingSaleById(shippingSaleId: number): Observable<ShippingSale> {
-        return this.http.get<ShippingSale>(`${this.urlShippingSale}${shippingSaleId}`);
+    searchShippingSaleById(idDetalleDeVenta: number): Observable<ShippingSale> {
+        return this.http.get<ShippingSale>(`${this.urlShippingSale}${idDetalleDeVenta}`);
     }
 
     clearRecord() {

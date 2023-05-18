@@ -15,7 +15,7 @@
      <ng-container matColumnDef="ver">
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let element"> 
-            <a class="pointer" [routerLink] = "['/edit-customer',element.dni]" style="color:blue">
+            <a class="pointer" [routerLink] = "['/edit-customer',element.id]" style="color:blue">
                 <mat-icon>edit</mat-icon>
             </a>
             <a class="pointer" (click)="eliminateProduct(element.id)" style="color: red"> 

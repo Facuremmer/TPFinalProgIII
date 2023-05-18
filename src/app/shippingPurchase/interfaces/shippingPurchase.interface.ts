@@ -1,5 +1,6 @@
 export interface ShippingPurchase {
-    idCodigoDeSeguimiento: string;
-    correo:                string;
-    sucursal:              string;
+    idCodigoDeSeguimiento?: number;
+    idDetalleCompra?:       number;
+    correo?:                string;
+    sucursal?:              string;
 }

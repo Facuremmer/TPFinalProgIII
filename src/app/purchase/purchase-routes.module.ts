@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CreatePurchaseComponent,
   },
   {
-    path: 'edit-Purchase/:PurchaseId',
+    path: 'edit-Purchase/:idCompra',
     component: ViewPurchaseComponent
   },
 ]
