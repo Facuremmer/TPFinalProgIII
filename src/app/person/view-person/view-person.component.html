@@ -1,0 +1,81 @@
+<form autocomplete="off"
+    (ngSubmit)="save()"
+    [formGroup]="miForm1">
+<div fxLayout="row"
+     fxLayoutGap="200px"
+     fxLayout.xs="column">
+     <div fxFlex='100' 
+          fxLayout="column">
+          <div fxLayout="row"
+              fxLayout.xs="column"
+              fxLayoutGap="20px">
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    DNI: 
+                </mat-label>
+                <input matInput type="number" 
+                       class="form-control" 
+                       id="idCuit_Dni" 
+                       name="idCuit_Dni" 
+                       required 
+                       formControlName="idCuit_Dni" 
+                       placeholder="Ingresar DNI">
+
+                <div *ngIf="miForm1.get('idCuit_Dni')?.touched && miForm1.get('idCuit_Dni')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es obligatorio
+                </div>
+                <div *ngIf="miForm1.get('idCuit_Dni')?.touched && miForm1.get('idCuit_Dni')?.errors?.['min']"
+                    class="alert alert-danger">El número debe ser mayor que
+                    {{ miForm1.get('idCuit_Dni')?.errors?.['min']?.min}} 
+                </div> 
+                <div *ngIf="miForm1.get('idCuit_Dni')?.touched && miForm1.get('idCuit_Dni')?.errors?.['max']"
+                      class="alert alert-danger">El número debe ser menor que
+                    {{ miForm1.get('idCuit_Dni')?.errors?.['max']?.max}} 
+                        </div>                
+            </mat-form-field>
+         </div>        
+         </div>
+         
+
+        <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="20px">   
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
+                    Nombre completo: 
+                </mat-label>
+                <input matInput 
+                       type="text" 
+                       class="form-control"
+                       id="nombreCompleto" 
+                       name="nombreCompleto" 
+                       required 
+                       formControlName="nombreCompleto" 
+                       placeholder="Ingresar nombre completo">
+
+                <div *ngIf="miForm1.get('nombreCompleto')?.touched && miForm1.get('nombreCompleto')?.errors?.['required']"
+                    class="alert alert-danger">Este campo es obligatorio
+                </div>
+
+            </mat-form-field>
+        </div>   
+
+            <div fxLayout> 
+                <button mat-raised-button
+                        color="primary"
+                        type="submit"
+                        [disabled]="miForm1.invalid">
+                    <mat-icon>edit</mat-icon>
+                    Guardar
+                </button> 
+                <button mat-raised-button
+                        color="primary"
+                        (click)="goBack()">
+                    <mat-icon>back</mat-icon>
+                    Atras
+                </button>           
+            </div>
+    </div>
+</form> 

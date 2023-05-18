@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Location } from '@angular/common';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,21 +14,21 @@ import { Location } from '@angular/common';
 
 export class SearchProductComponent  {
 
+  urlCreate:string = environment.apiUri + "/Productos/agregar";
+  
   @ViewChild("txtBuscar") txtBuscar!:ElementRef<HTMLInputElement>;
-  //@ViewChild("buttonBuscar") buttonBuscar!:ElementRef<HTMLInputElement>;
-  //@ViewChild("buttonClear") buttonClear!:ElementRef<HTMLInputElement>
 
   get record(){
     return this.prodService.record;
   } 
 
   constructor(private prodService:ProductService,
-              private location: Location){
+              private location: Location,
+              private  router: Router){
 
   }
  
    SearchAll (){
-    //const value = this.buttonBuscar.nativeElement;
     this.prodService.SearchAllProducts();
   } 
  
@@ -42,12 +44,19 @@ export class SearchProductComponent  {
    }
 
   Clear(){
-    //const value = this.buttonClear.nativeElement;
     this.prodService.ClearRecord();
    }
 
    goBack():void{
     this.location.back()
+  }
+
+  goCreate(): void{
+    this.router.navigate(['productos/agregar'])
+  }
+
+  goCreateType(): void{
+    this.router.navigate(['productos/agregarTipo'])
   }
 
 }

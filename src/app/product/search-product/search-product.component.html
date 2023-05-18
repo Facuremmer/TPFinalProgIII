@@ -13,6 +13,14 @@
       </mat-autocomplete> 
 </mat-form-field> 
   
-<button mat-button type="button" class="btn btn-primary" #buttonClear (click)="Clear()">Borrar historial</button>
-<button mat-button type="button" class="btn btn-primary" #buttonBuscar (click)="SearchAll()">Obtener todos</button>
-<button mat-button type="button" class="btn btn-primary" #buttonClear (click)="goBack()">Atras</button>
+
+<button mat-icon-button color="wait" (click)="SearchByName()" >
+    <mat-icon>search</mat-icon>
+  </button>
+
+<button mat-button type="button" class="btn btn-primary" (click)="Clear()">Borrar historial</button>
+<button mat-button type="button" class="btn btn-primary" (click)="SearchAll()">Obtener todos</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goCreate()">Crear producto</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goCreateType()">Crear tipo producto</button>
+<button mat-button type="button" class="btn btn-primary" (click)="goBack()">Atras</button>
+

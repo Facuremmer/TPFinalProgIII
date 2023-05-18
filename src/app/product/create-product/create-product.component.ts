@@ -5,6 +5,7 @@ import { ProductService } from '../services/product.service';
 import { TypeProduct } from '../interfaces/typeProduct.interface';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,9 +16,10 @@ export class CreateProductComponent implements OnInit{
 
   miForm = this.formBuilder.group (
     {
-      idProducto:[,[Validators.required, Validators.minLength(4)]],
+      idProducto:[,[Validators.required, Validators.min(0)]],
       idTipoProducto: [,[Validators.required,Validators.min(0)]],
-      stockActual: [,[Validators.required,Validators.min(0)]]
+      stockActual: [,[Validators.required,Validators.min(0)]],
+      precio: [,[Validators.required,Validators.min(0)]]
     }
   )
 
@@ -26,39 +28,21 @@ export class CreateProductComponent implements OnInit{
   constructor(private formBuilder: FormBuilder,
               private productService: ProductService,
               private _snackBar: MatSnackBar,
-              private location: Location){ }
+              private location: Location,
+              private  router: Router){ }
 
   ngOnInit(): void { 
     this.productService.nameProducts()
     .subscribe(
       resp => {
           this.typeProds = resp;
+          console.log(this.typeProds)
       });
-    //Con esto puedo pre cargarle un valor a uno de los campos, se puede poner igual en una función.
-    /* const ran = 5;
-    this.miForm.reset(
-      {
-        stockActual: 5
-      }
-    ); */
-  }
-
-  idProductoError(){
-    return this.miForm.controls.idProducto.errors &&
-           this.miForm.controls.idProducto.touched;
-    ; 
-    
   }
 
   idTipoProductoError(){
     return this.miForm.controls.idTipoProducto.errors &&
            this.miForm.controls.idTipoProducto.touched; 
-    
-  }
-
-  stockActualError(){
-    return this.miForm.controls.stockActual.errors &&
-           this.miForm.controls.stockActual.touched; 
     
   }
 
@@ -73,6 +57,7 @@ export class CreateProductComponent implements OnInit{
       idProducto: this.miForm.controls.idProducto.value!,
       idTipoProducto: this.miForm.controls.idTipoProducto.value!,
       stockActual: this.miForm.controls.stockActual.value!,
+      precio:this.miForm.controls.precio.value!
     }
 
     this.productService.create(newprod);
@@ -84,6 +69,10 @@ export class CreateProductComponent implements OnInit{
       horizontalPosition:'center',
       verticalPosition:'bottom'
      })
+  }
+
+  goCreateType(): void{
+    this.router.navigate(['productos/agregarTipo'])
   }
 
   goBack():void{

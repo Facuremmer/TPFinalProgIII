@@ -1,0 +1,134 @@
+<form autocomplete="off"
+    (ngSubmit)="save()"
+    [formGroup]="miForm">
+<div fxLayout="row"
+     fxLayoutGap="200px"
+     fxLayout.xs="column">
+     <div fxFlex='100' 
+          fxLayout="column">
+
+          <div fxLayout="row"
+          fxLayout.xs="column"
+          fxLayoutGap="20px">           
+        <mat-form-field fxFlex='100'
+                        fxLayout.xs="column">
+            <mat-label>
+               Id Venta: 
+            </mat-label>
+            <mat-select formControlName="idCompra">
+                <mat-option *ngFor="let purchase of purchases" [value]="purchase.idCompra">
+                    {{purchase.idCompra}}
+                </mat-option>
+            </mat-select>       
+            <span class="form-text text-danger"
+                *ngIf="idCompraError()" >
+                Debe elegir una opción
+            </span>
+        </mat-form-field>
+    </div>
+
+    <div fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutGap="20px">           
+  <mat-form-field fxFlex='100'
+                  fxLayout.xs="column">
+      <mat-label>
+         Producto: 
+      </mat-label>
+      <mat-select formControlName="idProducto">
+          <mat-option *ngFor="let product of products" [value]="product.idTipoProducto">
+              {{product.descripcion}}
+          </mat-option>
+      </mat-select>       
+      <span class="form-text text-danger"
+          *ngIf="idProductoError()" >
+          Debe elegir una opción
+      </span>
+  </mat-form-field>
+</div>
+
+<div fxLayout="row"
+fxLayout.xs="column"
+fxLayoutGap="20px">   
+<mat-form-field fxFlex='100'
+               fxLayout.xs="column">
+   <mat-label>
+       Precio:
+   </mat-label>
+   <input matInput 
+           type="number" 
+           placeholder="Ingresar precio"
+           formControlName="precio"
+           required>
+           <div *ngIf="miForm.get('precio')?.touched && miForm.get('precio')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es obligatorio
+           </div>
+           <div *ngIf="miForm.get('precio')?.touched && miForm.get('precio')?.errors?.['min']"
+                  class="alert alert-danger">Solo se aceptan valores positivos
+           </div>
+</mat-form-field>
+</div>
+<div fxLayout="row"
+fxLayout.xs="column"
+fxLayoutGap="20px">   
+<mat-form-field fxFlex='100'
+               fxLayout.xs="column">
+   <mat-label>
+       Cantidad:
+   </mat-label>
+   <input matInput 
+           type="number" 
+           placeholder="Ingresar cantidad"
+           formControlName="cantidad"
+           required>
+           <div *ngIf="miForm.get('cantidad')?.touched && miForm.get('cantidad')?.errors?.['required']"
+                  class="alert alert-danger">Este campo es obligatorio
+           </div>
+           <div *ngIf="miForm.get('cantidad')?.touched && miForm.get('cantidad')?.errors?.['min']"
+                  class="alert alert-danger">Solo se aceptan valores positivos
+           </div>
+</mat-form-field>
+</div>
+<div fxLayout="row"
+fxLayout.xs="column"
+fxLayoutGap="20px">   
+<mat-form-field fxFlex='100'
+               fxLayout.xs="column">
+   <mat-label>
+       Retencion:
+   </mat-label>
+   <input matInput 
+           type="number" 
+           placeholder="Ingresar retencion"
+           formControlName="retencion">
+           <div *ngIf="miForm.get('retencion')?.touched && miForm.get('retencion')?.errors?.['min']"
+                  class="alert alert-danger">Solo se aceptan valores positivos
+           </div>
+</mat-form-field>
+</div>
+
+   <div fxLayout> 
+                <button mat-raised-button
+                        color="primary"
+                        type="submit"
+                        [disabled]="miForm.invalid">
+                    <mat-icon>edit</mat-icon>
+                    Guardar
+                </button>  
+                <button mat-raised-button
+                        color="primary"
+                        (click)="goBack()">
+                    <mat-icon>back</mat-icon>
+                    Atras
+                </button>  
+                <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="20px">   
+            </div>     
+            </div>
+    </div>
+</div>
+</form>
+
+
+

@@ -15,7 +15,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table'  
 import {MatExpansionModule} from '@angular/material/expansion';
-import { MatTreeModule } from '@angular/material/tree'
+import { MatTreeModule } from '@angular/material/tree';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 
@@ -39,7 +42,11 @@ import { MatTreeModule } from '@angular/material/tree'
     MatToolbarModule,
     MatTableModule ,
     MatExpansionModule,
-    MatTreeModule
+    MatTreeModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+    
   ]
 })
 export class MaterialModule { }

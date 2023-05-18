@@ -16,14 +16,17 @@
                 </mat-label>
  
                   <input matInput 
-                         type="text" 
+                         type="number" 
                          placeholder="Ingresar Codigo"
                          formControlName="idProducto"
                          >
-                         <span class="form-text text-danger"
-                               *ngIf="idProductoError()" >
-                            Minimo 4 números
-                        </span>
+                         <div *ngIf="miForm.get('idProducto')?.touched && miForm.get('idProducto')?.errors?.['required']"
+                               class="alert alert-danger">Este campo es obligatorio
+                        </div>
+                        <div *ngIf="miForm.get('idProducto')?.touched && miForm.get('idProducto')?.errors?.['min']"
+                              class="alert alert-danger">El número debe ser mayor que
+                            {{ miForm.get('idProducto')?.errors?.['min']?.min}} 
+                        </div>
             </mat-form-field>
          </div>
          
@@ -54,6 +57,30 @@
             <mat-form-field fxFlex='100'
                             fxLayout.xs="column">
                 <mat-label>
+                    Precio
+                </mat-label>
+
+                <input matInput 
+                        type="text" 
+                        placeholder="Precio"
+                        formControlName="precio"
+                        required>
+                        <div *ngIf="miForm.get('precio')?.touched && miForm.get('precio')?.errors?.['required']"
+                               class="alert alert-danger">Este campo es obligatorio
+                        </div>
+                        <div *ngIf="miForm.get('precio')?.touched && miForm.get('precio')?.errors?.['min']"
+                              class="alert alert-danger">El número debe ser mayor que
+                            {{ miForm.get('precio')?.errors?.['min']?.min}} 
+                        </div>     
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="20px">   
+            <mat-form-field fxFlex='100'
+                            fxLayout.xs="column">
+                <mat-label>
                     Stock Actual
                 </mat-label>
 
@@ -62,10 +89,13 @@
                         placeholder="Stock actual"
                         formControlName="stockActual"
                         required>
-                        <span class="form-text text-danger"
-                               *ngIf="stockActualError()">
-                            Stock Actual mayor o igual que cero
-                        </span>     
+                        <div *ngIf="miForm.get('stockActual')?.touched && miForm.get('stockActual')?.errors?.['required']"
+                               class="alert alert-danger">Este campo es obligatorio
+                        </div>
+                        <div *ngIf="miForm.get('stockActual')?.touched && miForm.get('stockActual')?.errors?.['min']"
+                              class="alert alert-danger">El número debe ser mayor que
+                            {{ miForm.get('stockActual')?.errors?.['min']?.min}} 
+                        </div>     
             </mat-form-field>
         </div>   
 
@@ -82,7 +112,17 @@
                         (click)="goBack()">
                     <mat-icon>back</mat-icon>
                     Atras
-                </button>         
+                </button>  
+                <div fxLayout="row"
+             fxLayout.xs="column"
+             fxLayoutGap="20px">   
+<!--                 <button mat-raised-button
+                        color="primary"
+                        (click)="goCreateType()">
+                    <mat-icon>edit</mat-icon>
+                    Crear Tipo
+                </button>  --> 
+            </div>     
             </div>
     </div>
 </form>

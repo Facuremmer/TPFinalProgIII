@@ -12,25 +12,73 @@
 
       
       <mat-nav-list>
-          <!-- <a  routerLink="/productos/buscar" 
+        <a  routerLink="/Clientes/buscar" 
               mat-list-item
               (click)= "sidenav.toggle()">
-              <mat-icon mat-list-icon>lebel</mat-icon>
-              Buscar Producto
-          </a>  --> 
-                  
-          <a  routerLink="/productos/agregar" 
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Clientes
+          </a> 
+          <a  routerLink="/Compra/buscar" 
               mat-list-item
               (click)= "sidenav.toggle()">
-              <mat-icon mat-list-icon>add</mat-icon>
-              Crear Producto
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Compra
           </a>
+          <a  routerLink="/DetalleCompra/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Detalle Compra
+          </a>
+          <a  routerLink="/DetalleVenta/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Detalle Venta
+          </a> 
+          <a  routerLink="/Dirección/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Dirección
+          </a> 
+          <a  routerLink="/EnvioCompra/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Envio Compra
+          </a> 
+          <a  routerLink="/EnvioVenta/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Envio Venta
+          </a> 
+           <a  routerLink="/persona/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Personas
+          </a> 
           <a  routerLink="/productos/buscar" 
               mat-list-item
               (click)= "sidenav.toggle()">
-              <mat-icon mat-list-icon>search</mat-icon>
-              Buscar Producto
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Productos
           </a> 
+          <a  routerLink="/Proveedor/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Provedores
+          </a>
+          <a  routerLink="/Ventas/buscar" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Venta
+          </a>               
+
       </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar>
