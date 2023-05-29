@@ -1,11 +1,12 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
-import { Observable } from "rxjs";
-import { Purchase } from "../interfaces/purchase.interface";
-import { PurchaseCreate } from "../interfaces/purchaseCreate.interface";
-import { PurchaseUpdate } from "../interfaces/purchaseUpdate.interface";
-import { PurchaseId } from "../interfaces/purchaseId.interface";
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
+import { Observable } from 'rxjs';
+
+import { Purchase } from '../interfaces/purchase.interface';
+import { PurchaseCreate } from '../interfaces/purchaseCreate.interface';
+import { PurchaseId } from '../interfaces/purchaseId.interface';
+import { PurchaseUpdate } from '../interfaces/purchaseUpdate.interface';
 
 @Injectable()
 export class PurchaseService {
@@ -48,6 +49,10 @@ export class PurchaseService {
                 this._purchases = resp;
             }
         );
+        if (!this._record.includes(argument)){
+            this._record.push(argument);
+            localStorage.setItem('record',JSON.stringify(this._record));
+        }
     }
 
     SearchAllId(){

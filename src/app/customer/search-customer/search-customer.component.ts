@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { CustomerService } from '../services/customer.service';
+import { environment } from 'src/environments/environment';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 

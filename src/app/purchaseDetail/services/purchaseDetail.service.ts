@@ -2,10 +2,11 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+
 import { PurchaseDetail } from "../interfaces/purchaseDetail.interface";
 import { PurchaseDetailCreate } from "../interfaces/purchaseDetailCreate.interface";
-import { PurchaseDetailUpdate } from "../interfaces/purchaseDetailUpdate.Interface";
 import { PurchaseDetailId } from "../interfaces/purchaseDetailId.interface";
+import { PurchaseDetailUpdate } from "../interfaces/purchaseDetailUpdate.Interface";
 
 
 @Injectable()

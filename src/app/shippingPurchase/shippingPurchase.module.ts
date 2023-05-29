@@ -1,17 +1,19 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../material/material.module';
+import { RouterModule } from '@angular/router';
+
 import { CreateShippingPurchaseComponent } from './create-shipping-purchase/create-shipping-purchase.component';
 import { MainShippingPurchaseComponent } from './main-shipping-purchase/main-shipping-purchase.component';
+import { MaterialModule } from '../material/material.module';
+import { PurchaseDetailService } from '../purchaseDetail/services/purchaseDetail.service';
+import { PurchaseService } from '../purchase/services/purchase.service';
 import { ResultShippingPurchaseComponent } from './result-shipping-purchase/result-shipping-purchase.component';
 import { SearchShippingPurchaseComponent } from './search-shipping-purchase/search-shipping-purchase.component';
-import { ShippingPurchaseService } from './services/shippingPurchase.service';
 import { ShippingPurchaseRoute } from './shippingPurchase-routes.module';
+import { ShippingPurchaseService } from './services/shippingPurchase.service';
 import { ViewShippingPurchaseComponent } from './view-shipping-purchase/view-shipping-purchase.component';
-import { PurchaseService } from '../purchase/services/purchase.service';
-import { PurchaseDetailService } from '../purchaseDetail/services/purchaseDetail.service';
+
 
 
 

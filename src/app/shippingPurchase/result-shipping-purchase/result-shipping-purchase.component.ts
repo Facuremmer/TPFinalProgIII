@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { ShippingPurchaseService } from '../services/shippingPurchase.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { ShippingPurchaseService } from '../services/shippingPurchase.service';
 
 @Component({
   selector: 'app-result-shipping-purchase',

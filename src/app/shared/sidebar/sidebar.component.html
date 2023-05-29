@@ -9,8 +9,6 @@
           </button>
       </mat-toolbar>      
       
-
-      
       <mat-nav-list>
         <a  routerLink="/Clientes/buscar" 
               mat-list-item
@@ -77,7 +75,13 @@
               (click)= "sidenav.toggle()">
               <mat-icon mat-list-icon>chevron_right</mat-icon>
               Venta
-          </a>               
+          </a>   
+          <a  routerLink="/Lector/QR" 
+              mat-list-item
+              (click)= "sidenav.toggle()">
+              <mat-icon mat-list-icon>chevron_right</mat-icon>
+              Lector QR
+          </a>             
 
       </mat-nav-list>
   </mat-sidenav>
@@ -87,7 +91,13 @@
           <mat-icon>menu</mat-icon>
       </button>
       <span class="spacer"></span>
-      <span>Chocho</span>
+      <span style="color: rgba(48, 240, 240, 0.521)" appClickDirective>Chocho</span>
+      <div class="spacer"></div>
+      <button mat-icon-button
+              routerLink="/login"
+              (click)= "sidenav.toggle()">
+          <mat-icon>logout</mat-icon>
+      </button>
         
   </mat-toolbar>
   <mat-sidenav-container class="example-container">

@@ -1,18 +1,20 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Purchase } from '../interfaces/purchase.interface';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProviderService } from 'src/app/provider/services/provider.service';
-import { PurchaseService } from '../services/purchase.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
+
 import { ProviderId } from 'src/app/provider/interfaces/providerId.interface';
+import { ProviderService } from 'src/app/provider/services/provider.service';
+import { Purchase } from '../interfaces/purchase.interface';
+import { PurchaseService } from '../services/purchase.service';
 import { PurchaseUpdate } from '../interfaces/purchaseUpdate.interface';
 
 @Component({
   selector: 'app-view-purchase',
   templateUrl: './view-purchase.component.html',
+  styleUrls: ['./view-purchase.component.css']
 })
 export class ViewPurchaseComponent {
   miForm!: FormGroup;

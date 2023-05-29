@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { ProductService } from '../services/product.service';
 import { Location } from '@angular/common';
-import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+
+import { environment } from 'src/environments/environment';
+import { ProductService } from '../services/product.service';
 
 
 @Component({

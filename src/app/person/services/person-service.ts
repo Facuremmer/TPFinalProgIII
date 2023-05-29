@@ -1,9 +1,10 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment.prod";
+
 import { Person } from "../interfaces/person.interface";
-import { PersonDNI } from "../interfaces/personDNI.interface";
+
 
 
 @Injectable()

@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SaleService } from '../services/sale.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+
+import { SaleService } from '../services/sale.service';
 
 @Component({
   selector: 'app-search-sale',
@@ -50,6 +51,4 @@ export class SearchSaleComponent {
   goCreate(): void{
     this.router.navigate(['Ventas/agregar'])
   }
-
-
 }

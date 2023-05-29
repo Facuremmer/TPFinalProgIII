@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { PurchaseDetailService } from 'src/app/purchaseDetail/services/purchaseDetail.service';
-import { ShippingPurchaseService } from '../services/shippingPurchase.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { PurchaseDetailId } from 'src/app/purchaseDetail/interfaces/purchaseDetailId.interface';
+import { PurchaseDetailService } from 'src/app/purchaseDetail/services/purchaseDetail.service';
+
 import { ShippingPurchaseCreateOrUpdate } from '../interfaces/shippingPurchaseCreateOrUpdate.interface';
+import { ShippingPurchaseService } from '../services/shippingPurchase.service';
 
 @Component({
   selector: 'app-create-shipping-purchase',
   templateUrl: './create-shipping-purchase.component.html',
+  styleUrls: ['./create-shipping-purchase.component.css']
 })
 export class CreateShippingPurchaseComponent {
 

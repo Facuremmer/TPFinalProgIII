@@ -1,8 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Location } from '@angular/common';
 import { PersonService } from '../services/person-service';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-search-person',

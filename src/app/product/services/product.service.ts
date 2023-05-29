@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Product } from "../interfaces/product.interface";
-import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment.prod";
+
+import { IdProduct } from "../interfaces/idProduct.interface";
+import { Product } from "../interfaces/product.interface";
 import { ProductCreate } from "../interfaces/productCreate.interface";
 import { TypeProduct } from "../interfaces/typeProduct.interface";
 import { TypeProductCreate } from "../interfaces/typeProductCreate.interface";
-import { IdProduct } from "../interfaces/idProduct.interface";
 
 @Injectable()
 export class ProductService {

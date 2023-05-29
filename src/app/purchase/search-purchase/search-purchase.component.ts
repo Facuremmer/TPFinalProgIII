@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { PurchaseService } from '../services/purchase.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+
+import { PurchaseService } from '../services/purchase.service';
 
 @Component({
   selector: 'app-search-purchase',

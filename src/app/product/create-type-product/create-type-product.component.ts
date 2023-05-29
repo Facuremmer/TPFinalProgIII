@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ProductService } from '../services/product.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { TypeProductCreate } from '../interfaces/typeProductCreate.interface';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { ProductService } from '../services/product.service';
+import { TypeProductCreate } from '../interfaces/typeProductCreate.interface';
 
 @Component({
   selector: 'app-create-type-product',
   templateUrl: './create-type-product.component.html',
-
+  styleUrls: ['./create-type-product.component.css']
 })
 export class CreateTypeProductComponent {
   miForm = this.formBuilder.group (

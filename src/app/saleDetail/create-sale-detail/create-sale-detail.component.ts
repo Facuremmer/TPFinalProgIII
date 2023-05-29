@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { TypeProduct } from 'src/app/product/interfaces/typeProduct.interface';
 import { Location } from '@angular/common';
+
 import { ProductService } from 'src/app/product/services/product.service';
-import { SaleId } from 'src/app/sale/interfaces/saleId.interface';
 import { SaleService } from 'src/app/sale/services/sale.service';
-import { SaleDetailCreate } from '../interfaces/saleDetailaCreate.interface';
+
+import { TypeProduct } from 'src/app/product/interfaces/typeProduct.interface';
+
+import { SaleId } from 'src/app/sale/interfaces/saleId.interface';
 import { SaleDetailService } from '../services/saleDetail.service';
+import { SaleDetailCreate } from '../interfaces/saleDetailaCreate.interface';
 
 @Component({
   selector: 'app-create-sale-detail',
   templateUrl: './create-sale-detail.component.html',
+  styleUrls: ['./create-sale-detail.component.css']
 })
 export class CreateSaleDetailComponent {
 

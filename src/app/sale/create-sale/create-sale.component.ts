@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { SaleService } from '../services/sale.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { CustomerService } from 'src/app/customer/services/customer.service';
-import { SaleCreate } from '../interfaces/saleCreate.interface';
 import { CustomerUpdate } from 'src/app/customer/interfaces/customerUpdate.interface';
+import { SaleCreate } from '../interfaces/saleCreate.interface';
+import { SaleService } from '../services/sale.service';
 
 @Component({
   selector: 'app-create-sale',
   templateUrl: './create-sale.component.html',
+  styleUrls: ['./create-sale.component.css']
 })
 export class CreateSaleComponent implements OnInit {
 

@@ -1,7 +1,7 @@
+import { CreateAdressComponent } from './create-adress/create-adress.component';
+import { MainAdressComponent } from './main-adress/main-adress.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainAdressComponent } from './main-adress/main-adress.component';
-import { CreateAdressComponent } from './create-adress/create-adress.component';
 import { ViewAdressComponent } from './view-adress/view-adress.component';
 
 

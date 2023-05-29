@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
-import { PurchaseId } from 'src/app/purchase/interfaces/purchaseId.interface';
-import { PurchaseDetail } from '../interfaces/purchaseDetail.interface';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PurchaseService } from 'src/app/purchase/services/purchase.service';
-import { ProductService } from 'src/app/product/services/product.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchMap } from 'rxjs';
+
+import { IdProduct } from 'src/app/product/interfaces/idProduct.interface';
+import { PurchaseDetail } from '../interfaces/purchaseDetail.interface';
 import { PurchaseDetailService } from '../services/purchaseDetail.service';
 import { PurchaseDetailUpdate } from '../interfaces/purchaseDetailUpdate.Interface';
-import { IdProduct } from 'src/app/product/interfaces/idProduct.interface';
+import { PurchaseId } from 'src/app/purchase/interfaces/purchaseId.interface';
+import { PurchaseService } from 'src/app/purchase/services/purchase.service';
+import { ProductService } from 'src/app/product/services/product.service';
 
 @Component({
   selector: 'app-view-purchase-detail',
   templateUrl: './view-purchase-detail.component.html',
+  styleUrls: ['./view-purchase-detail.component.css']
 })
 export class ViewPurchaseDetailComponent {
   miForm!: FormGroup;

@@ -1,18 +1,21 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CustomerUpdate } from 'src/app/customer/interfaces/customerUpdate.interface';
-import { Sale } from '../interfaces/sale.interface';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SaleService } from '../services/sale.service';
-import { CustomerService } from 'src/app/customer/services/customer.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchMap } from 'rxjs';
+
+import { CustomerService } from 'src/app/customer/services/customer.service';
+import { CustomerUpdate } from 'src/app/customer/interfaces/customerUpdate.interface';
+
+import { Sale } from '../interfaces/sale.interface';
+import { SaleService } from '../services/sale.service';
 import { SaleUpdate } from '../interfaces/saleUpdate.interface';
 
 @Component({
   selector: 'app-view-sale',
   templateUrl: './view-sale.component.html',
+  styleUrls: ['./view-sale.component.css']
 })
 export class ViewSaleComponent {
   miForm!: FormGroup;

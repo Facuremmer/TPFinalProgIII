@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { CreatePurchaseComponent } from './create-purchase/create-purchase.component';
 import { MainPurchaseComponent } from './main-purchase/main-purchase.component';
 import { ViewPurchaseComponent } from './view-purchase/view-purchase.component';

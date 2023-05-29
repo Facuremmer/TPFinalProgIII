@@ -1,17 +1,19 @@
-import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../services/product.service';
-import { switchMap} from 'rxjs/operators';
-import { TypeProduct } from '../interfaces/typeProduct.interface';
-import { ProductCreate } from '../interfaces/productCreate.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
+
+import { ProductService } from '../services/product.service';
+import { ProductCreate } from '../interfaces/productCreate.interface';
 import { ProductId } from '../interfaces/productId.interface';
+import { TypeProduct } from '../interfaces/typeProduct.interface';
 
 @Component({
   selector: 'app-view-product',
   templateUrl: './view-product.component.html',
+  styleUrls: ['./view-product.component.css']
 
 })
 export class ViewProductComponent implements OnInit{

@@ -1,11 +1,12 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
-import { Observable } from "rxjs";
-import { Sale } from "../interfaces/sale.interface";
-import { SaleCreate } from "../interfaces/saleCreate.interface";
-import { SaleUpdate } from "../interfaces/saleUpdate.interface";
-import { SaleId } from "../interfaces/saleId.interface";
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment.prod';
+import { Observable } from 'rxjs';
+
+import { Sale } from '../interfaces/sale.interface';
+import { SaleCreate } from '../interfaces/saleCreate.interface';
+import { SaleId } from '../interfaces/saleId.interface';
+import { SaleUpdate } from '../interfaces/saleUpdate.interface';
 
 @Injectable()
 export class SaleService {
@@ -40,7 +41,7 @@ export class SaleService {
     }
 
     SearchSaleByBranch(argument:string){
-        const params = new HttpParams().set('branchName',argument); 
+        const params = new HttpParams().set('saleName',argument); 
 
         this.http.get<Sale[]>(`${this.urlSale}byName?`, {params})
         .subscribe(
@@ -48,6 +49,10 @@ export class SaleService {
                 this._sales = resp;
             }
         );
+        if (!this._record.includes(argument)){
+            this._record.push(argument);
+            localStorage.setItem('record',JSON.stringify(this._record));
+        }
     }
 
     SearchAllId(){

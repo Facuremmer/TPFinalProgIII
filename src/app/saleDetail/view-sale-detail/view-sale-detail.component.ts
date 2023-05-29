@@ -1,20 +1,23 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { IdProduct } from 'src/app/product/interfaces/idProduct.interface';
-import { SaleId } from 'src/app/sale/interfaces/saleId.interface';
-import { SaleDetail } from '../interfaces/saleDetail.interface';
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'src/app/product/services/product.service';
-import { SaleService } from 'src/app/sale/services/sale.service';
-import { SaleDetailService } from '../services/saleDetail.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
+
+import { SaleDetail } from '../interfaces/saleDetail.interface';
+import { SaleDetailService } from '../services/saleDetail.service';
 import { SaleDetailUpdate } from '../interfaces/saleDetailUpdate';
+import { SaleId } from 'src/app/sale/interfaces/saleId.interface';
+import { SaleService } from 'src/app/sale/services/sale.service';
+import { IdProduct } from 'src/app/product/interfaces/idProduct.interface';
+import { ProductService } from 'src/app/product/services/product.service';
+
 
 @Component({
   selector: 'app-view-sale-detail',
   templateUrl: './view-sale-detail.component.html',
+  styleUrls: ['./view-sale-detail.component.css']
 })
 export class ViewSaleDetailComponent {
   miForm!: FormGroup;

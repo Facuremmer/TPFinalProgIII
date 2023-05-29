@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+
 import { ShippingPurchase } from "../interfaces/shippingPurchase.interface";
 import { ShippingPurchaseCreateOrUpdate } from "../interfaces/shippingPurchaseCreateOrUpdate.interface";
 
@@ -38,20 +39,30 @@ export class ShippingPurchaseService {
             );
     }
 
-    searchShippingPurchaseByPurchaseId(purchaseId: number) {
-        const params = new HttpParams().set('purchaseId', purchaseId.toString());
+  /*   SearchShippingById(id: number) {
+        const url = `${this.urlShippingPurchase}${id}`;
+      
+        this.http.get<ShippingPurchase[]>(url)
+          .subscribe(
+            resp => {
+              this._shippingPurchases = resp;
+            }
+          );
+      } */
 
-        this.http.get<ShippingPurchase[]>(`${this.urlShippingPurchase}byPurchaseId?`, { params })
-            .subscribe(
-                resp => {
-                    this._shippingPurchases = resp;
-                }
-            );
-        if (!this._record.includes(purchaseId.toString())) {
-            this._record.push(purchaseId.toString());
-            localStorage.setItem('record', JSON.stringify(this._record));
-        }
-    }
+   /*    SearchShippingById(id: number) {
+        const url = `${this.urlShippingPurchase}${id}`;
+      
+        this.http.get<{ data: ShippingPurchase[] }>(url)
+          .subscribe(
+            resp => {
+              this._shippingPurchases = resp.data;
+            }
+          );
+      }
+       */
+      
+      
 
     searchShippingPurchaseById(idShippingPurchase: number): Observable<ShippingPurchase> {
         return this.http.get<ShippingPurchase>(`${this.urlShippingPurchase}${idShippingPurchase}`);

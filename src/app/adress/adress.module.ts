@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+import { CreateAdressComponent } from './create-adress/create-adress.component';
+import { MainAdressComponent } from './main-adress/main-adress.component';
+import { MaterialModule } from '../material/material.module';
 import { ResultAdressComponent } from './result-adress/result-adress.component';
 import { SearchAdressComponent } from './search-adress/search-adress.component';
-import { MainAdressComponent } from './main-adress/main-adress.component';
-import { CreateAdressComponent } from './create-adress/create-adress.component';
 import { ViewAdressComponent } from './view-adress/view-adress.component';
-import { MaterialModule } from '../material/material.module';
-import { AdressService } from './services/adress.service';
+
 import { AdressRoute } from './adress-routes.module';
+import { AdressService } from './services/adress.service';
 
 
 

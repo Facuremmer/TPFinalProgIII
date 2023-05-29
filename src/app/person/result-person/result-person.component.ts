@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { PersonService } from '../services/person-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { PersonService } from '../services/person-service';
+
 
 @Component({
   selector: 'app-result-person',

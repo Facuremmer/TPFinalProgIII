@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { Person } from '../interfaces/person.interface';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { Person } from '../interfaces/person.interface';
 import { PersonService } from '../services/person-service';
 
 @Component({
   selector: 'app-create-person',
   templateUrl: './create-person.component.html',
+  styleUrls: ['./create-person.component.css']
 })
 export class CreatePersonComponent {
 

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { CustomerService } from '../services/customer.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { CustomerCreate } from '../interfaces/customerCreate.interface';
-import { PersonService } from 'src/app/person/services/person-service';
+import { CustomerService } from '../services/customer.service';
+
 import { PersonDNI } from 'src/app/person/interfaces/personDNI.interface';
+import { PersonService } from 'src/app/person/services/person-service';
 
 @Component({
   selector: 'app-create-customer',
   templateUrl: './create-customer.component.html',
+  styleUrls: ['./create-customer.component.css']
 })
 export class CreateCustomerComponent implements OnInit {
 
