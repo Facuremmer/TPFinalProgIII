@@ -1,11 +1,13 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment.prod";
+
 import { SaleDetail } from "../interfaces/saleDetail.interface";
 import { SaleDetailCreate } from "../interfaces/saleDetailaCreate.interface";
-import { SaleDetailUpdate } from "../interfaces/saleDetailUpdate";
 import { SaleDetailId } from "../interfaces/saleDetailId.interface";
+import { SaleDetailUpdate } from "../interfaces/saleDetailUpdate";
+
 
 @Injectable()
 export class SaleDetailService {
@@ -40,7 +42,7 @@ export class SaleDetailService {
     }
 
     SearchSaleDetailByName(argument:string){
-        const params = new HttpParams().set('saleDetailName',argument); 
+        const params = new HttpParams().set('branchName',argument); 
 
         this.http.get<SaleDetail[]>(`${this.urlSaleDetail}byName?`, {params})
         .subscribe(
@@ -48,6 +50,10 @@ export class SaleDetailService {
                 this._saleDetails = resp;
             }
         );
+        if (!this._record.includes(argument)){
+            this._record.push(argument);
+            localStorage.setItem('record',JSON.stringify(this._record));
+        }
     }
 
     SearchAllId(){

@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { PurchaseService } from '../services/purchase.service';
-import { PurchaseCreate } from '../interfaces/purchaseCreate.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { ProviderId } from 'src/app/provider/interfaces/providerId.interface';
 import { ProviderService } from 'src/app/provider/services/provider.service';
+
+import { PurchaseCreate } from '../interfaces/purchaseCreate.interface';
+import { PurchaseService } from '../services/purchase.service';
 
 @Component({
   selector: 'app-create-purchase',
   templateUrl: './create-purchase.component.html',
+  styleUrls: ['./create-purchase.component.css']
 })
 export class CreatePurchaseComponent implements OnInit {
 

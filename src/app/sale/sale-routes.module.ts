@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainSaleComponent } from './main-sale/main-sale.component';
+
 import { CreateSaleComponent } from './create-sale/create-sale.component';
+import { MainSaleComponent } from './main-sale/main-sale.component';
 import { ViewSaleComponent } from './view-sale/view-sale.component';
 
 

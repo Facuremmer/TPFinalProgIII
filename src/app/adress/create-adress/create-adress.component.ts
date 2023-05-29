@@ -1,15 +1,16 @@
-import { Location } from '@angular/common';
+import { AdressCreate } from '../interfaces/adressCreate.interface';
+import { AdressService } from 'src/app/adress/services/adress.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AdressService } from 'src/app/adress/services/adress.service';
-import { PersonService } from 'src/app/person/services/person-service';
-import { AdressCreate } from '../interfaces/adressCreate.interface';
 import { PersonDNI } from 'src/app/person/interfaces/personDNI.interface';
+import { PersonService } from 'src/app/person/services/person-service';
 
 @Component({
   selector: 'app-create-adress',
   templateUrl: './create-adress.component.html',
+  styleUrls: ['./create-adress.component.css']
 })
 
 export class CreateAdressComponent implements OnInit {

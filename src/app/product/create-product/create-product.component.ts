@@ -1,16 +1,18 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+
 import { ProductCreate } from '../interfaces/productCreate.interface';
 import { ProductService } from '../services/product.service';
 import { TypeProduct } from '../interfaces/typeProduct.interface';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-create-product',
   templateUrl: './create-product.component.html',
+  styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit{
 

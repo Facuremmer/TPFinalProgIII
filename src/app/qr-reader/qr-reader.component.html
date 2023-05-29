@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-content>
+      <input type="hidden" #selection>
+
+      <div class="terminal" [ngSwitch]="selection.value">
+        <pre *ngSwitchDefault>
+          <div>
+            Lector QR:
+            <qr-scanner
+              [debug]="false"
+              [canvasWidth]="1080" 
+              [canvasHeight]="720" 
+              [stopAfterScan]="false" 
+              [updateTime]="500"> 
+            </qr-scanner>
+            El QR scaneado dice lo siguiente: <br>
+            {{ qrResult }}
+          </div>
+        </pre>
+      </div>
+    </mat-card-content>
+</mat-card>
+
+
+
+

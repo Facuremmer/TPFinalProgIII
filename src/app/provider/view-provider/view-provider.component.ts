@@ -1,18 +1,20 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Person } from 'src/app/person/interfaces/person.interface';
-import { Provider } from '../interfaces/provider.interface';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PersonService } from 'src/app/person/services/person-service';
-import { ProviderService } from '../services/provider.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { switchMap } from 'rxjs';
+
+import { Person } from 'src/app/person/interfaces/person.interface';
+import { PersonService } from 'src/app/person/services/person-service';
+import { Provider } from '../interfaces/provider.interface';
 import { ProviderCreate } from '../interfaces/providerCreate.interface';
+import { ProviderService } from '../services/provider.service';
 
 @Component({
   selector: 'app-view-provider',
   templateUrl: './view-provider.component.html',
+  styleUrls: ['./view-provider.component.css']
 })
 export class ViewProviderComponent {
   miForm!: FormGroup;

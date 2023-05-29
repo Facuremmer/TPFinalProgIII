@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { PurchaseDetailService } from '../services/purchaseDetail.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { PurchaseDetailService } from '../services/purchaseDetail.service';
 
 @Component({
   selector: 'app-result-purchase-detail',

@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MaterialModule } from '../material/material.module';
 import { CreateSaleComponent } from './create-sale/create-sale.component';
+import { CustomerService } from '../customer/services/customer.service';
 import { MainSaleComponent } from './main-sale/main-sale.component';
+import { MaterialModule } from '../material/material.module';
 import { ResultSaleComponent } from './result-sale/result-sale.component';
 import { SaleRoute } from './sale-routes.module';
-import { SearchSaleComponent } from './search-sale/search-sale.component';
 import { SaleService } from './services/sale.service';
+import { SearchSaleComponent } from './search-sale/search-sale.component';
 import { ViewSaleComponent } from './view-sale/view-sale.component';
-import { CustomerService } from '../customer/services/customer.service';
 
 
 @NgModule({

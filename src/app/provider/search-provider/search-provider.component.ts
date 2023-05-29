@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { ProviderService } from '../services/provider.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
+import { ProviderService } from '../services/provider.service';
 
 @Component({
   selector: 'app-search-provider',

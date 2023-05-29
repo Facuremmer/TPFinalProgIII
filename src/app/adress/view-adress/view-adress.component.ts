@@ -1,18 +1,19 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { Adress } from '../interfaces/adress.interface';
+import { AdressCreate } from '../interfaces/adressCreate.interface';
+import { AdressService } from '../services/adress.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PersonService } from 'src/app/person/services/person-service';
-import { AdressService } from '../services/adress.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs';
-import { AdressCreate } from '../interfaces/adressCreate.interface';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Person } from 'src/app/person/interfaces/person.interface';
-import { Adress } from '../interfaces/adress.interface';
+import { PersonService } from 'src/app/person/services/person-service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-view-adress',
   templateUrl: './view-adress.component.html',
+  styleUrls: ['./view-adress.component.css']
 })
 export class ViewAdressComponent {
   miForm!: FormGroup;

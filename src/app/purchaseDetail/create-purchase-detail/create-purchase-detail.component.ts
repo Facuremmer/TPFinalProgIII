@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { TypeProduct } from 'src/app/product/interfaces/typeProduct.interface';
-import { PurchaseId } from 'src/app/purchase/interfaces/purchaseId.interface';
-import { PurchaseDetailService } from '../services/purchaseDetail.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ProductService } from 'src/app/product/services/product.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { PurchaseService } from 'src/app/purchase/services/purchase.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { ProductService } from 'src/app/product/services/product.service';
 import { PurchaseDetailCreate } from '../interfaces/purchaseDetailCreate.interface';
+import { PurchaseDetailService } from '../services/purchaseDetail.service';
+import { PurchaseId } from 'src/app/purchase/interfaces/purchaseId.interface';
+import { PurchaseService } from 'src/app/purchase/services/purchase.service';
+import { TypeProduct } from 'src/app/product/interfaces/typeProduct.interface';
 
 @Component({
   selector: 'app-create-purchase-detail',
   templateUrl: './create-purchase-detail.component.html',
+  styleUrls: ['./create-purchase-detail.component.css']
 })
 export class CreatePurchaseDetailComponent {
 

@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SaleDetailId } from 'src/app/saleDetail/interfaces/saleDetailId.interface';
-import { SaleDetailService } from 'src/app/saleDetail/services/saleDetail.service';
-import { ShippingSaleService } from '../services/shippingSale.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { AdressId } from 'src/app/adress/interfaces/adressId.interface';
 import { AdressService } from 'src/app/adress/services/adress.service';
+
+import { SaleDetailId } from 'src/app/saleDetail/interfaces/saleDetailId.interface';
+import { SaleDetailService } from 'src/app/saleDetail/services/saleDetail.service';
 import { ShippingSaleCreateOrUpdate } from '../interfaces/shippingSaleCreateOrUpdate.interface';
+import { ShippingSaleService } from '../services/shippingSale.service';
+
 
 @Component({
   selector: 'app-create-shipping-sale',
   templateUrl: './create-shipping-sale.component.html',
+  styleUrls: ['./create-shipping-sale.component.css']
 })
 export class CreateShippingSaleComponent {
 

@@ -1,15 +1,17 @@
-import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap} from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
+
 import { Person } from '../interfaces/person.interface';
 import { PersonService } from '../services/person-service';
 
 @Component({
   selector: 'app-view-person',
   templateUrl: './view-person.component.html',
+  styleUrls: ['./view-person.component.css']
 })
 export class ViewPersonComponent implements OnInit{
   miForm1!: FormGroup;

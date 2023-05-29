@@ -1,8 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ShippingSaleService } from '../services/shippingSale.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+
+import { ShippingSaleService } from '../services/shippingSale.service';
+
 
 @Component({
   selector: 'app-search-shipping-sale',
@@ -26,18 +28,7 @@ export class SearchShippingSaleComponent {
    SearchAll (){
     this.shippingSaleService.searchAllShippingSales();
   } 
- 
-  /* SearchByBranch (){
-    const value = this.txtBuscar.nativeElement.value;
-    if (value.trim()==='') return;
-    this.shippingSaleService.SearchSaleByBranch(value);
-    this.txtBuscar.nativeElement.value = ''; 
-  } 
-
-  search(argument: string){
-    this.shippingSaleService.SearchSaleByBranch(argument);
-   } */
-
+  
   Clear(){
     this.shippingSaleService.clearRecord();
    }

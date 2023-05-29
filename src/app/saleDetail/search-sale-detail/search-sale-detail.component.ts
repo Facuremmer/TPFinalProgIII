@@ -1,8 +1,10 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SaleDetailService } from '../services/saleDetail.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+
+import { SaleDetailService } from '../services/saleDetail.service';
+
 
 @Component({
   selector: 'app-search-sale-detail',

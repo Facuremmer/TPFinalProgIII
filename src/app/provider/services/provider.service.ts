@@ -1,11 +1,12 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { environment } from "src/environments/environment.prod";
 import { Observable } from "rxjs";
+
+import { environment } from "src/environments/environment.prod";
 import { Provider } from "../interfaces/provider.interface";
 import { ProviderCreate } from "../interfaces/providerCreate.interface";
-import { ProviderUpdate } from "../interfaces/providerUpdate.interface";
 import { ProviderId } from "../interfaces/providerId.interface";
+import { ProviderUpdate } from "../interfaces/providerUpdate.interface";
 
 
 

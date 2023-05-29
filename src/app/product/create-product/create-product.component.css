@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .form-wrapper {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .form-wrapper form mat-form-field {
+    width: 100%;
+  }
+    
+  
+  

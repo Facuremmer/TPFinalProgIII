@@ -1,7 +1,8 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment.prod";
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+
 import { Customer } from "../interfaces/customer.interface";
 import { CustomerUpdate } from "../interfaces/customerUpdate.interface";
 import { CustomerCreate } from "../interfaces/customerCreate.interface";
@@ -47,6 +48,10 @@ export class CustomerService {
                 this._customers = resp;
             }
         );
+        if (!this._record.includes(argument)){
+            this._record.push(argument);
+            localStorage.setItem('record',JSON.stringify(this._record));
+        }
     }
 
     SearchAllId(){

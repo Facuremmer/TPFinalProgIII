@@ -1,18 +1,20 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { PurchaseDetailId } from 'src/app/purchaseDetail/interfaces/purchaseDetailId.interface';
-import { ShippingPurchase } from '../interfaces/shippingPurchase.interface';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PurchaseDetailService } from 'src/app/purchaseDetail/services/purchaseDetail.service';
-import { ShippingPurchaseService } from '../services/shippingPurchase.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
-import { switchMap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { switchMap } from 'rxjs/operators';
+
+import { PurchaseDetailId } from 'src/app/purchaseDetail/interfaces/purchaseDetailId.interface';
+import { PurchaseDetailService } from 'src/app/purchaseDetail/services/purchaseDetail.service';
+import { ShippingPurchase } from '../interfaces/shippingPurchase.interface';
 import { ShippingPurchaseCreateOrUpdate } from '../interfaces/shippingPurchaseCreateOrUpdate.interface';
+import { ShippingPurchaseService } from '../services/shippingPurchase.service';
 
 @Component({
   selector: 'app-view-shipping-purchase',
   templateUrl: './view-shipping-purchase.component.html',
+  styleUrls: ['./view-shipping-purchase.component.css']
 })
 export class ViewShippingPurchaseComponent {
   miForm!: FormGroup;

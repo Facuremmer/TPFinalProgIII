@@ -1,18 +1,22 @@
-import { Location } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
+
+import { Customer } from '../interfaces/customer.interface';
+import { CustomerService } from '../services/customer.service';
+import { CustomerUpdate } from '../interfaces/customerUpdate.interface';
+
 import { PersonDNI } from 'src/app/person/interfaces/personDNI.interface';
 import { PersonService } from 'src/app/person/services/person-service';
-import { CustomerService } from '../services/customer.service';
-import { switchMap } from 'rxjs';
-import { Customer } from '../interfaces/customer.interface';
-import { CustomerUpdate } from '../interfaces/customerUpdate.interface';
+
 
 @Component({
   selector: 'app-view-customer',
   templateUrl: './view-customer.component.html',
+  styleUrls: ['./view-customer.component.css']
 })
 export class ViewCustomerComponent {
   miForm!: FormGroup;

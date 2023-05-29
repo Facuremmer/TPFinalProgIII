@@ -1,14 +1,20 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material/material.module';
+
+import { ClickDirectiveDirective } from '../directives/clickDirective.directive';
+import { SidebarComponent } from './sidebar/sidebar.component';
+
+
 
 
 
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+    ClickDirectiveDirective
+
   ],
   imports: [
     CommonModule,
@@ -16,7 +22,8 @@ import { MaterialModule } from '../material/material.module';
     MaterialModule
   ],
   exports: [
-    SidebarComponent
+    SidebarComponent,
+    ClickDirectiveDirective
   ]
 })
 export class SharedModule { }

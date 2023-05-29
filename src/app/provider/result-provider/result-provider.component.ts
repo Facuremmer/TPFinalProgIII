@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProviderService } from '../services/provider.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProviderService } from '../services/provider.service';
 
 @Component({
   selector: 'app-result-provider',

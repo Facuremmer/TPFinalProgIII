@@ -1,0 +1,16 @@
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="bold"(click)="goCreateClient()">Crear cliente</mat-button-toggle>
+    <mat-button-toggle value="bold"(click)="goCreateProvider()">Crear proveedor</mat-button-toggle>
+    <mat-button-toggle value="bold"(click)="goCreatePurchase()">Crear compra</mat-button-toggle>
+    <mat-button-toggle value="bold"(click)="goCreateSale()">Crear Venta</mat-button-toggle>
+    <mat-button-toggle value="bold"(click)="goCreatePurchaseDetail()">Crear detalle de compra</mat-button-toggle>
+    <mat-button-toggle value="bold"(click)="goCreateSaleDetail()">Crear detalle de venta</mat-button-toggle>
+  </mat-button-toggle-group>
+
+<mat-grid-list cols="3">
+    <mat-grid-tile *ngFor="let image of images">
+      <img [src]="image.path" [alt]="image.alt" />
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
