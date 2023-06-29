@@ -15,4 +15,17 @@ li {
   .primary-text {
     color: var(--primary);
   }
+
+  .sidebar-columns {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+  }
+
+  .columna {
+    display: block;
+  }
+  
   

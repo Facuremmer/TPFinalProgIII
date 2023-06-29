@@ -31,12 +31,8 @@ export class HomepageComponent {
     this.router.navigate(['Ventas/agregar'])
   }
 
-  goCreatePurchaseDetail(): void{
-    this.router.navigate(['DetalleCompra/agregar'])
-  }
-
-  goCreateSaleDetail(): void{
-    this.router.navigate(['DetalleVenta/agregar'])
+  goCreatePerson(): void{
+    this.router.navigate(['persona/agregar'])
   }
 
 }

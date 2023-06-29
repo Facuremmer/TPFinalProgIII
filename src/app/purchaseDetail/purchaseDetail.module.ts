@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { MaterialModule } from '../material/material.module';
-import { CreatePurchaseDetailComponent } from './create-purchase-detail/create-purchase-detail.component';
 import { MainPurchaseDetailComponent } from './main-purchase-detail/main-purchase-detail.component';
 import { PurchaseDetailRoute } from './purchaseDetail-routes.module';
 import { PurchaseDetailService } from './services/purchaseDetail.service';
@@ -21,7 +20,6 @@ import { ViewPurchaseDetailComponent } from './view-purchase-detail/view-purchas
     ResultPurchaseDetailComponent, 
     SearchPurchaseDetailComponent, 
     MainPurchaseDetailComponent, 
-    CreatePurchaseDetailComponent, 
     ViewPurchaseDetailComponent
 ],
 

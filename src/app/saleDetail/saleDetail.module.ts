@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { CreateSaleDetailComponent } from './create-sale-detail/create-sale-detail.component';
 import { MainSaleDetailComponent } from './main-sale-detail/main-sale-detail.component';
 import { MaterialModule } from '../material/material.module';
 import { ResultSaleDetailComponent } from './result-sale-detail/result-sale-detail.component';
@@ -20,7 +19,6 @@ import { ViewSaleDetailComponent } from './view-sale-detail/view-sale-detail.com
     ResultSaleDetailComponent, 
     SearchSaleDetailComponent, 
     MainSaleDetailComponent, 
-    CreateSaleDetailComponent, 
     ViewSaleDetailComponent
 ],
 

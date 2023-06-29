@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
@@ -8,6 +8,11 @@ import { SaleCreate } from '../interfaces/saleCreate.interface';
 import { SaleId } from '../interfaces/saleId.interface';
 import { SaleUpdate } from '../interfaces/saleUpdate.interface';
 
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':'application/json'
+    })
+};
 @Injectable()
 export class SaleService {
 
@@ -69,9 +74,12 @@ export class SaleService {
         window.location.reload();
     }
 
-    create(newSale: SaleCreate) {
-        this.http.put(`${this.urlSale}create`, newSale)
-            .subscribe();
+     create(newSale: SaleCreate): Observable<Response> {
+        return this.http.post<Response>(`${this.urlSale}create`, newSale, httpOptions);
+    }
+
+    openCreate(){
+        console.log("algo")
     }
 
     edit(newSale: SaleUpdate) {
