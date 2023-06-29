@@ -1,4 +1,88 @@
 <mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+      <mat-toolbar color="primary">
+        <span>Menu</span>
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </mat-toolbar>
+  
+      <mat-nav-list class="sidebar-columns">
+        <div class="column">
+          <a routerLink="/Clientes/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Clientes
+          </a>
+          <a routerLink="/Compra/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Compra
+          </a>
+          <a routerLink="/DetalleCompra/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Detalle Compra
+          </a>
+          <a routerLink="/DetalleVenta/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Detalle Venta
+          </a>
+          <a routerLink="/Dirección/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Dirección
+          </a>
+          <a routerLink="/EnvioCompra/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Envio Compra
+          </a>
+        </div>
+        <div class="column">
+          <a routerLink="/EnvioVenta/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Envio Venta
+          </a>
+          <a routerLink="/persona/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Personas
+          </a>
+          <a routerLink="/productos/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Productos
+          </a>
+          <a routerLink="/Proveedor/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Proveedores
+          </a>
+          <a routerLink="/Ventas/buscar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Venta
+          </a>
+          <a routerLink="/Lector/QR" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>chevron_right</mat-icon>
+            Lector QR
+          </a>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-toolbar>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <span style="color: rgba(48, 240, 240, 0.521)" appClickDirective>Chocho</span>
+      <div class="spacer"></div>
+      <button mat-icon-button routerLink="/login" (click)="sidenav.toggle()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+  
+    <mat-sidenav-container class="example-container">
+      <router-outlet></router-outlet>
+    </mat-sidenav-container>
+  </mat-sidenav-container>
+  
+  
+<!-- <mat-sidenav-container fullscreen>
   <mat-sidenav #sidenav mode="push">
       <mat-toolbar color="primary">
           <span>Menu</span>
@@ -105,4 +189,4 @@
   </mat-sidenav-container>
   
 
-</mat-sidenav-container> 
+</mat-sidenav-container>  -->

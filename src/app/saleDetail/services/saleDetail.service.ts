@@ -70,11 +70,6 @@ export class SaleDetailService {
         window.location.reload();
     }
 
-    create(newSaleDetail: SaleDetailCreate) {
-        this.http.put(`${this.urlSaleDetail}create`, newSaleDetail)
-            .subscribe();
-    }
-
     edit(newSaleDetail: SaleDetailUpdate) {
         this.http.put(`${this.urlSaleDetail}update`, newSaleDetail)
             .subscribe();

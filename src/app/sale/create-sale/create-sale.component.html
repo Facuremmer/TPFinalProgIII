@@ -1,113 +1,101 @@
 <div class="container">
-    <div class="form-wrapper">
-<form autocomplete="off"
-    (ngSubmit)="save()"
-    [formGroup]="miForm">
-<div fxLayout="row"
-     fxLayoutGap="200px"
-     fxLayout.xs="column">
-     <div fxFlex='100' 
-          fxLayout="column">
-          <h3 class="h3 mb-3 fw-normal" style="color: gray">Agregar venta:</h3>
-          <div fxLayout="row"
-          fxLayout.xs="column"
-          fxLayoutGap="20px">           
-        <mat-form-field fxFlex='100'
-                        fxLayout.xs="column">
-            <mat-label>
-                DNI Cliente: 
-            </mat-label>
-            <mat-select formControlName="idCliente">
-                <mat-option *ngFor="let customer of customers" [value]="customer.idCliente">
-                    {{customer.idCuit_Dni}}
-                </mat-option>
-            </mat-select>       
-            <span class="form-text text-danger"
-                *ngIf="idClienteError()" >
-                Debe elegir una opción
-            </span>
-        </mat-form-field>
-    </div>
-    <div fxLayout="row"
-    fxLayout.xs="column"
-    fxLayoutGap="20px">   
-   <mat-form-field fxFlex='100'
-                   fxLayout.xs="column">
-       <mat-label>
-           Sucuarsal Venta:
-       </mat-label>
-       <input matInput 
-               type="text" 
-               placeholder="Ingresar la fecha de la compra"
-               formControlName="sucursalVenta"
-               required>
-               <div *ngIf="miForm.get('sucursalVenta')?.touched && miForm.get('sucursalVenta')?.errors?.['required']"
-                      class="alert alert-danger">Este campo es obligatorio
-               </div>
-   </mat-form-field>
-</div>
+  <div class="form-wrapper">
+    <form autocomplete="off" (ngSubmit)="save()" [formGroup]="miForm">
+      <h2 class="title">Crear Venta</h2>
 
-    <div fxLayout="row"
-             fxLayout.xs="column"
-             fxLayoutGap="20px">   
-        <mat-form-field fxFlex='100' 
-                        fxLayout.xs="column">
-            <mat-label>Fecha:</mat-label>
-            <input matInput [matDatepicker]="picker" 
-                            placeholder="Ingresar la fecha de la compra" 
-                            formControlName="fecha" 
-                            required>
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="miForm.get('fecha')?.touched && miForm.get('fecha')?.errors?.['required']">
-              Este campo es obligatorio
+      <mat-form-field appearance="fill">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="idCliente" required>
+          <mat-option *ngFor="let customer of customers" [value]="customer.idCliente">
+            {{ customer.idCuit_Dni }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="idClienteError()">Selecciona un cliente</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Sucursal de Venta</mat-label>
+        <input matInput formControlName="sucursalVenta" required>
+        <mat-error *ngIf="miForm.get('sucursalVenta')?.touched && miForm.get('sucursalVenta')?.errors?.['required']"
+          class="alert alert-danger">Este campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="miForm.get('fecha')?.touched && miForm.get('fecha')?.errors?.['required']">
+          Este campo es obligatorio
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Total Venta</mat-label>
+        <input matInput formControlName="totalVenta" [value]="calculateTotalVenta()" readonly>
+      </mat-form-field>
+
+      <div formArrayName="detallesVenta">
+        <div *ngFor="let detalleVenta of saleDetails.controls; let i = index" [formGroupName]="i">
+          <h4>Detalle de Venta {{ i + 1 }}</h4>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Producto</mat-label>
+            <mat-select formControlName="idProducto" required>
+              <mat-option *ngFor="let product of products" [value]="product.idProducto">
+                {{ product.nombreProducto }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="detalleVenta.get('idProducto')?.touched">
+              Selecciona un producto
             </mat-error>
           </mat-form-field>
-    </div>
 
-    <div fxLayout="row"
-             fxLayout.xs="column"
-             fxLayoutGap="20px">   
-            <mat-form-field fxFlex='100'
-                            fxLayout.xs="column">
-                <mat-label>
-                    Total Venta:
-                </mat-label>
-                <input matInput 
-                        type="number" 
-                        placeholder="Ingresar Total Venta"
-                        formControlName="totalVenta"
-                        required>
-                        <div *ngIf="miForm.get('totalVenta')?.touched && miForm.get('totalVenta')?.errors?.['required']"
-                               class="alert alert-danger">Este campo es obligatorio
-                        </div>
-                        <div *ngIf="miForm.get('totalVenta')?.touched && miForm.get('totalVenta')?.errors?.['min']"
-                               class="alert alert-danger">Solo se aceptan valores positivos
-                        </div>
-            </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Precio</mat-label>
+            <input matInput formControlName="precio" required>
+            <mat-error *ngIf="detalleVenta.get('precio')?.invalid && detalleVenta.get('precio')?.touched">
+              Ingresa un precio válido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Cantidad</mat-label>
+            <input matInput formControlName="cantidad" required>
+            <mat-error *ngIf="detalleVenta.get('cantidad')?.invalid && detalleVenta.get('cantidad')?.touched">
+              Ingresa una cantidad válida
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Descuento</mat-label>
+            <input matInput formControlName="descuento">
+            <mat-error *ngIf="detalleVenta.get('descuento')?.invalid && detalleVenta.get('descuento')?.touched">
+              Ingresa un descuento válido
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Recargo</mat-label>
+            <input matInput formControlName="recargo">
+            <mat-error *ngIf="detalleVenta.get('recargo')?.invalid && detalleVenta.get('recargo')?.touched">
+              Ingresa un recargo válido
+            </mat-error>
+          </mat-form-field>
+
+          <button mat-icon-button color="warn" (click)="removeSaleDetail(i)">
+            <mat-icon>close</mat-icon>
+          </button>
         </div>
+      </div>
 
-            <div fxLayout> 
-                <button mat-raised-button
-                        color="primary"
-                        type="submit"
-                        [disabled]="miForm.invalid">
-                    <mat-icon>edit</mat-icon>
-                    Guardar
-                </button>  
-                <button mat-raised-button
-                        color="primary"
-                        (click)="goBack()">
-                    <mat-icon>back</mat-icon>
-                    Atras
-                </button>  
-                <div fxLayout="row"
-             fxLayout.xs="column"
-             fxLayoutGap="20px">   
-            </div>     
-            </div>
-    </div>
-</div>
-</form>
-</div>     
+      <button mat-raised-button color="primary" type="button" (click)="addSaleDetail()">Agregar Detalle</button>
+
+      <div class="button-group">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-raised-button color="accent" (click)="goBack()">Volver</button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
@@ -7,6 +7,12 @@ import { Purchase } from '../interfaces/purchase.interface';
 import { PurchaseCreate } from '../interfaces/purchaseCreate.interface';
 import { PurchaseId } from '../interfaces/purchaseId.interface';
 import { PurchaseUpdate } from '../interfaces/purchaseUpdate.interface';
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        'Content-Type':'application/json'
+    })
+};
 
 @Injectable()
 export class PurchaseService {
@@ -84,9 +90,8 @@ export class PurchaseService {
         window.location.reload();
     }
 
-    create(newPurchase: PurchaseCreate) {
-        this.http.put(`${this.urlPurchase}create`, newPurchase)
-            .subscribe();
+    create(newPurchase: PurchaseCreate): Observable<Response> {
+        return this.http.post<Response>(`${this.urlPurchase}create`, newPurchase, httpOptions);
     }
 
     edit(newPurchase: PurchaseUpdate) {

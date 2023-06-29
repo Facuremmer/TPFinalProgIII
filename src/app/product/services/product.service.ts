@@ -50,12 +50,19 @@ export class ProductService {
             );
     }
 
+    SearchAllProductsOptions(){
+        return this.http.get<Product[]>(`${this.urlProd}All`)
+    }
     SearchAllProductsId(){
         return this.http.get<IdProduct[]>(`${this.urlProd}AllId`);
     }
 
     nameProducts(){
         return this.http.get<TypeProduct[]>(`${this.urlTypeProd}All`);
+    }
+
+    idProducts(){
+        return this.http.get<IdProduct[]>(`${this.urlProd}AllId`);
     }
 
     SearchProductByName(argument:string){
